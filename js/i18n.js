@@ -284,3 +284,5 @@ window.PILLARS = [
 ];
 Object.assign(window.I18N.en,{"fc.st":"Empty consulting rooms, booked by the hour","fc.ss":"How we built a healthcare marketplace from the first wireframe to the Web Summit Lisbon stage."});
 Object.assign(window.I18N.pt,{"fc.st":"Consultórios vazios, alugados por hora","fc.ss":"Como construímos um marketplace de saúde do primeiro wireframe ao palco do Web Summit Lisboa."});
+Object.assign(window.I18N.en,{"fc.screens":"Screens from the Figma file","fc.r1":"Search by place and date","fc.r2":"Room page, scrolling","fc.r3":"Price always one tap away","fc.r4":"Booking confirmation email","fc.r5":"Full-screen room gallery"});
+Object.assign(window.I18N.pt,{"fc.screens":"Telas do arquivo no Figma","fc.r1":"Busca por local e data","fc.r2":"Página da sala, rolando","fc.r3":"Preço sempre a um toque","fc.r4":"E-mail de confirmação da reserva","fc.r5":"Galeria da sala em tela cheia"});

@@ -190,9 +190,11 @@ lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
 lb.addEventListener("keydown",e=>{if(!set)return;if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)});
 $("#dgrid").addEventListener("click",e=>{const c=e.target.closest(".dc");if(!c)return;const k=CASES[+c.dataset.i];
   open({t:k.c,s:`${k.sec[lang]} · ${k.cat.map(x=>t(CAT[x])).join(" · ")}`,imgs:imgs(k)},0)});
-const fusionSet=()=>({t:"Fusion Clinic",s:"UX/UI",imgs:["assets/work/fusion-clinic-uxui-01.jpg","assets/work/fusion-clinic-uxui-03.jpg","assets/work/fusion-clinic-uxui-04.jpg","assets/work/fusion-clinic-uxui-02.jpg","assets/work/fusion-clinic-social-01.jpg"]});
+const fusionSet=()=>({t:"Fusion Clinic",s:"UX/UI · Figma",imgs:["assets/img/fusion-desktop-room.jpg","assets/img/fusion-desktop-gallery.jpg","assets/img/fusion-mobile-search.jpg","assets/img/fusion-mobile-room.jpg","assets/img/fusion-mobile-book.jpg","assets/img/fusion-email.jpg","assets/work/fusion-clinic-uxui-01.jpg","assets/work/fusion-clinic-social-01.jpg"]});
 $("#openFusion").addEventListener("click",()=>open(fusionSet(),0));
 $("#openFusion2").addEventListener("click",()=>open(fusionSet(),0));
+$("#openFusion3").addEventListener("click",()=>open(fusionSet(),0));
+$$("#fusionRail .rp").forEach((f,i)=>f.addEventListener("click",()=>open(fusionSet(),[2,3,4,5,1][i])));
 
 /* ---------- copy + form ---------- */
 $$(".copy").forEach(b=>b.addEventListener("click",()=>{
