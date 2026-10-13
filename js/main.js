@@ -141,11 +141,10 @@ $("#themeBtn").addEventListener("click",()=>{
 const CAT={brand:"d.brand",social:"d.social",editorial:"d.editorial"};
 const imgs=k=>Array.from({length:k.n},(_,i)=>`assets/work/${k.s}-0${i+1}.jpg`);
 let filter="all";
+const HERO={"pro-solucoes":1};
 function cardVis(k){
-  const im=imgs(k);
-  if(k.cat.includes("editorial"))return `<span class="dv dv-ed"><span class="dv-one"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
-  if(k.social)return `<span class="dv dv-so"><span class="iph"><span class="iph-s"><span class="iph-bar"><i></i>${esc(k.c)}</span><img src="${im[0]}" alt="" loading="lazy"><span class="iph-cap"><span class="iph-act"><i></i><i></i><i></i></span><span></span><span></span></span></span></span></span>`;
-  return `<span class="dv dv-br"><span class="dv-one"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
+  const im=imgs(k);const src=im[HERO[k.s]||0];
+  return `<span class="dv-full"><img src="${src}" alt="" loading="lazy"></span>`;
 }
 function renderGallery(silent){
   const g=$("#dgrid");if(!g)return;
@@ -183,7 +182,7 @@ const fusionSet=()=>({t:"Fusion Clinic",s:"UX/UI · Figma",imgs:["assets/img/fus
 $("#openFusion").addEventListener("click",()=>open(fusionSet(),0));
 $("#openFusion2").addEventListener("click",()=>open(fusionSet(),0));
 $("#openFusion3").addEventListener("click",()=>open(fusionSet(),0));
-$$("#fusionRail .rp").forEach((f,i)=>f.addEventListener("click",()=>open(fusionSet(),[2,3,4,5,1][i])));
+$$("#fusionRail .sc").forEach(f=>f.addEventListener("click",()=>{const set=fusionSet();open(set,Math.max(0,set.imgs.indexOf(f.dataset.img)))}));
 
 /* ---------- copy + form ---------- */
 $$(".copy").forEach(b=>b.addEventListener("click",()=>{

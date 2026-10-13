@@ -208,14 +208,33 @@
       </div>
     </div>
   
-    <div class="screens-rail" data-reveal>
-      <div class="rail-head"><p class="eyebrow" data-i18n="fc.screens">Screens from the Figma file</p><button class="btn ghost" type="button" id="openFusion3" data-i18n="fc.open">View all screens</button></div>
-      <div class="rail" id="fusionRail">
-        <figure class="rp"><div class="rp-phone"><div class="rp-screen"><span class="still" role="img" aria-label="Mobile search: city, neighbourhood or postcode and date" style="background-image:url(assets/img/fusion-mobile-search.jpg)"></span></div></div><figcaption data-i18n="fc.r1">Search by place and date</figcaption></figure>
-        <figure class="rp"><div class="rp-phone"><div class="rp-screen"><span class="pan" role="img" aria-label="Mobile room page: gallery, description, amenities and calendar" style="background-image:url(assets/img/fusion-mobile-room.jpg)"></span></div></div><figcaption data-i18n="fc.r2">Room page, scrolling</figcaption></figure>
-        <figure class="rp"><div class="rp-phone"><div class="rp-screen"><span class="still" role="img" aria-label="Mobile room page with fixed price and Book button" style="background-image:url(assets/img/fusion-mobile-book.jpg)"></span></div></div><figcaption data-i18n="fc.r3">Price always one tap away</figcaption></figure>
-        <figure class="rp"><div class="rp-phone"><div class="rp-screen"><span class="pan slow" role="img" aria-label="Booking confirmation email for the space owner with check-in, checkout and total" style="background-image:url(assets/img/fusion-email.jpg)"></span></div></div><figcaption data-i18n="fc.r4">Booking confirmation email</figcaption></figure>
-        <figure class="rp wide"><div class="rp-browser"><span class="bar"><i></i><i></i><i></i></span><img src="assets/img/fusion-desktop-gallery.jpg" alt="Desktop full-screen photo gallery of a room" loading="lazy"></div><figcaption data-i18n="fc.r5">Full-screen room gallery</figcaption></figure>
+    <div class="screens-rail">
+      <div class="rail-head"><p class="eyebrow" data-reveal data-i18n="fc.screens">Screens from the Figma file</p><button class="btn ghost" type="button" id="openFusion3" data-i18n="fc.open">View all screens</button></div>
+      <div class="sgrid" id="fusionRail">
+        <button type="button" class="sc sc-m" data-reveal data-img="assets/img/fusion-mobile-search.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c1t">Search by place and date</span><span class="sc-sub" data-i18n="fc.c1s">City, neighbourhood or postcode, plus the day you need.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-mobile-search.jpg" alt="Search by place and date" loading="lazy"></span>
+        </button>
+        <button type="button" class="sc sc-m" data-reveal data-img="assets/img/fusion-mobile-room.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c2t">Every room, one page</span><span class="sc-sub" data-i18n="fc.c2s">Photos, description, amenities and the hourly calendar.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-mobile-room.jpg" alt="Every room, one page" loading="lazy"></span>
+        </button>
+        <button type="button" class="sc sc-m" data-reveal data-img="assets/img/fusion-mobile-book.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c3t">Price one tap away</span><span class="sc-sub" data-i18n="fc.c3s">A fixed footer keeps the hourly rate and Book button in reach.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-mobile-book.jpg" alt="Price one tap away" loading="lazy"></span>
+        </button>
+        <button type="button" class="sc sc-d" data-reveal data-img="assets/img/fusion-desktop-room.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c4t">The room page on desktop</span><span class="sc-sub" data-i18n="fc.c4s">Gallery, details and a price card that follows the reader.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-desktop-room.jpg" alt="The room page on desktop" loading="lazy"></span>
+        </button>
+        <button type="button" class="sc sc-d" data-reveal data-img="assets/img/fusion-desktop-gallery.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c5t">Full-screen gallery</span><span class="sc-sub" data-i18n="fc.c5s">Professionals judge a room by its photos, so they get the whole screen.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-desktop-gallery.jpg" alt="Full-screen gallery" loading="lazy"></span>
+        </button>
+        <button type="button" class="sc sc-m" data-reveal data-img="assets/img/fusion-email.jpg">
+          <span class="sc-txt"><span class="sc-title" data-i18n="fc.c6t">Booking confirmed</span><span class="sc-sub" data-i18n="fc.c6s">The email the space owner receives, with check-in, checkout and total.</span></span>
+          <span class="sc-img"><img src="assets/img/fusion-email.jpg" alt="Booking confirmed" loading="lazy"></span>
+        </button>
       </div>
     </div>
   </article>
