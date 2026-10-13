@@ -277,6 +277,15 @@ if(!reduce){let f=0;setInterval(()=>{f++;const fr=f%25,s=Math.floor(f/25)%60,mi=
   [...map.keys()].forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
 })();
 
+/* ---------- floating "Let's talk" widget ---------- */
+(function(){
+  const t=$("#talk"),hero=$(".hero2"),ct=$("#contact");if(!t)return;
+  let past=false,atEnd=false;setTimeout(()=>t.classList.add("in"),reduce?0:1600);
+  const upd=()=>{t.classList.toggle("is-mini",past);t.classList.toggle("hide",atEnd)};
+  if(hero)new IntersectionObserver(es=>{past=!es[0].isIntersecting||es[0].intersectionRatio<.55;upd()},{threshold:[0,.55,1]}).observe(hero);
+  if(ct)new IntersectionObserver(es=>{atEnd=es[0].isIntersecting;upd()},{threshold:.2}).observe(ct);
+})();
+
 applyLang();
 
 /* ---------- motion ---------- */
@@ -298,13 +307,25 @@ tl.from(".pill",{y:-40,opacity:0,duration:1})
   .from(".h2-h .ln > span",{yPercent:110,duration:1.2,stagger:.12},"-=1.1")
   .from(".h2-year,.h2-tag",{y:16,opacity:0,duration:.9,stagger:.08},"-=.9")
   .from(".h2-card",{x:40,opacity:0,rotate:3,duration:1.1},"-=.8")
-  .from(".h2-talk",{y:30,opacity:0,duration:1},"-=.8")
+  .from(".h2-build .sel,.h2-build .ruler,.h2-build .guide",{opacity:0,duration:.6,stagger:.08},"-=.6")
   .from(".h2-grid i,.h2-grid b",{opacity:0,duration:1.2,stagger:.03},"-=1.2");
 
 /* hero parallax */
 gsap.to(".h2-photo img",{yPercent:6,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
 gsap.to(".h2-ghost",{xPercent:-8,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
-gsap.to(".h2-card",{y:-60,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
+gsap.to(".h2-build",{y:-60,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
+/* building the card: cursor drags it into place, guides snap */
+const btl=gsap.timeline({repeat:-1,repeatDelay:2.2,defaults:{ease:"power2.inOut"}});
+btl.set(".h2-cursor",{x:-140,y:260,opacity:0})
+   .to(".h2-cursor",{opacity:1,duration:.3})
+   .to(".h2-cursor",{x:8,y:150,duration:1})
+   .to(".h2-card",{x:-22,y:14,duration:.5,ease:"power1.out"},"+=.1")
+   .to(".h2-cursor",{x:-14,y:164,duration:.5,ease:"power1.out"},"<")
+   .to(".h2-build .guide",{opacity:1,duration:.15},"-=.2")
+   .to(".h2-card",{x:0,y:0,duration:.5,ease:"back.out(2)"})
+   .to(".h2-cursor",{x:8,y:150,duration:.5,ease:"back.out(2)"},"<")
+   .to(".h2-build .guide",{opacity:0,duration:.4},"+=.3")
+   .to(".h2-cursor",{x:240,y:330,opacity:0,duration:1});
 
 /* reveals */
 ScrollTrigger.batch("[data-reveal]",{start:"top 90%",once:true,

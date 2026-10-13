@@ -1347,3 +1347,57 @@ dialog.lb::backdrop{background:rgba(8,9,11,.92);backdrop-filter:blur(4px)}
 .h2-inner{grid-template-rows:auto minmax(0,1fr) auto;padding-bottom:clamp(28px,4vh,56px)}
 .h2-av{width:72px;height:72px}
 @media (max-height:760px) and (min-width:901px){.h2-h{font-size:clamp(3rem,7.4vw,7rem)}.h2-tag{margin-top:clamp(70px,12vh,140px)}}
+
+/* =========================================================
+   v12 — hero fits any height; floating talk widget; card being built
+   ========================================================= */
+.hero2{height:auto;min-height:100vh;max-height:none}
+.h2-inner{min-height:100vh;height:auto;grid-template-rows:auto minmax(40px,1fr) auto;padding-bottom:clamp(36px,6vh,72px)}
+.h2-name{grid-column:1/-1}
+.h2-photo{width:min(46vw,640px,66vh)}
+@media (max-height:760px) and (min-width:901px){.h2-photo{width:min(40vw,560px,74vh)}}
+
+/* floating widget */
+.h2-talk{position:fixed;z-index:60;right:clamp(12px,2.2vw,32px);bottom:calc(env(safe-area-inset-bottom,0px) + clamp(12px,2.4vw,28px));
+  width:min(360px,calc(100vw - 24px));margin:0;transition:transform .6s cubic-bezier(.2,.8,.2,1),width .5s cubic-bezier(.2,.8,.2,1),opacity .4s,box-shadow .4s;
+  border:1px solid rgba(255,140,80,.18);animation:float 5s ease-in-out infinite}
+@keyframes float{50%{translate:0 -6px}}
+.h2-talk.is-mini{width:260px;padding:6px 8px 6px 6px;gap:10px}
+.h2-talk.is-mini .h2-av{width:44px;height:44px}
+.h2-talk.is-mini .h2-tt b{margin-top:0;font-size:.95rem}
+.h2-talk.is-mini .h2-tt em,.h2-talk.is-mini .h2-star{display:none}
+.h2-talk.is-mini .h2-arrow{width:34px;height:34px;align-self:center;background:linear-gradient(90deg,#FF5900,#FF2E1F);color:#fff}
+.h2-talk.hide{opacity:0;pointer-events:none;transform:translateY(30px)}
+@media (max-width:900px){.h2-talk{width:auto;left:12px;right:12px}.h2-talk.is-mini{left:auto;width:230px}}
+@media (prefers-reduced-motion:reduce){.h2-talk{animation:none}}
+
+/* Fusion card under construction */
+.h2-build{grid-column:2;grid-row:1;justify-self:end;align-self:start;position:relative;margin-top:clamp(120px,22vh,250px);margin-right:clamp(10px,2vw,30px)}
+.h2-build .h2-card{margin:0;transform:none;display:block;width:clamp(190px,16vw,240px);position:relative;z-index:2}
+.h2-build .h2-card:hover{transform:translateY(-4px)}
+.sel{position:absolute;inset:-8px;z-index:3;border:1.5px solid #fff;pointer-events:none}
+.sel .hd{position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid #FF5900}
+.sel .tl{left:-5px;top:-5px}.sel .tr{right:-5px;top:-5px}.sel .bl{left:-5px;bottom:-5px}.sel .br{right:-5px;bottom:-5px}
+.sel-lab{position:absolute;left:-1px;top:-28px;font-family:var(--mono);font-size:.66rem;color:#fff;background:#FF5900;padding:3px 7px;white-space:nowrap}
+.ruler{position:absolute;z-index:1;color:#fff;font-family:var(--mono);font-size:.62rem;pointer-events:none}
+.ruler.rx{left:-8px;right:-8px;bottom:-34px;height:10px;border-left:1px solid rgba(255,255,255,.8);border-right:1px solid rgba(255,255,255,.8)}
+.ruler.rx::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed rgba(255,255,255,.8)}
+.ruler.rx b{position:absolute;left:50%;top:-2px;transform:translateX(-50%);background:#E85A2C;padding:0 6px;font-weight:500}
+.ruler.ry{top:-8px;bottom:-8px;left:-34px;width:10px;border-top:1px solid rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.8)}
+.ruler.ry::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px dashed rgba(255,255,255,.8)}
+.ruler.ry b{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);background:#E85A2C;padding:0 6px;font-weight:500}
+.guide{position:absolute;z-index:1;background:#FF2E9A;opacity:0;pointer-events:none}
+.guide.gx{left:-60vw;right:-20vw;top:-8px;height:1px}
+.guide.gy{top:-40vh;bottom:-20vh;left:-8px;width:1px}
+.h2-cursor{position:absolute;left:50%;top:0;z-index:4;pointer-events:none;display:flex;align-items:flex-start;gap:2px}
+.h2-cursor em{font-style:normal;font-family:var(--body);font-size:.7rem;font-weight:600;color:#fff;background:#111;padding:2px 7px;border-radius:4px;margin-top:20px}
+@media (max-width:900px){.h2-build{display:none}}
+/* zoomed portrait: head and shoulders fill the poster, chest cropped by the hero edge */
+@media (min-width:901px){
+  .h2-photo{top:clamp(70px,9vh,110px);bottom:auto;width:min(60vw,980px,118vh);transform:translateX(-48%)}
+  .h2-photo img{-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 82%);mask-image:linear-gradient(to bottom,#000 55%,transparent 82%)}
+}
+@media (max-width:900px){.h2-photo{width:min(118vw,560px);margin:0 auto -22%;max-height:none}.h2-photo img{-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 92%);mask-image:linear-gradient(to bottom,#000 60%,transparent 92%)}.hero2{overflow:hidden}}
+.h2-talk{opacity:0;transform:translateY(40px)}
+.h2-talk.in{opacity:1;transform:none}
+.h2-talk.in.hide{opacity:0;transform:translateY(30px)}
