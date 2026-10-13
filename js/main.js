@@ -141,7 +141,7 @@ $("#themeBtn").addEventListener("click",()=>{
 const CAT={brand:"d.brand",social:"d.social",editorial:"d.editorial"};
 const imgs=k=>Array.from({length:k.n},(_,i)=>`assets/work/${k.s}-0${i+1}.jpg`);
 let filter="all";
-const HERO={"pro-solucoes":1};
+const HERO={"armiel":2,"noiva-dosal":2,"paulino-diagnosticos":1,"pro-solucoes":0};
 function cardVis(k){
   const im=imgs(k);const src=im[HERO[k.s]||0];
   return `<span class="dv-full"><img src="${src}" alt="" loading="lazy"></span>`;
@@ -180,9 +180,7 @@ lb.addEventListener("keydown",e=>{if(!set)return;if(e.key==="ArrowRight")step(1)
 $("#dgrid").addEventListener("click",e=>{const c=e.target.closest(".dc");if(!c)return;const k=CASES[+c.dataset.i];
   open({t:k.c,s:`${k.sec[lang]} · ${k.cat.map(x=>t(CAT[x])).join(" · ")}`,imgs:imgs(k)},0)});
 const fusionSet=()=>({t:"Fusion Clinic",s:"UX/UI · Figma",imgs:["assets/img/fusion-desktop-room.jpg","assets/img/fusion-desktop-gallery.jpg","assets/img/fusion-mobile-search.jpg","assets/img/fusion-mobile-room.jpg","assets/img/fusion-mobile-book.jpg","assets/img/fusion-email.jpg","assets/work/fusion-clinic-uxui-01.jpg","assets/work/fusion-clinic-social-01.jpg"]});
-$("#openFusion").addEventListener("click",()=>open(fusionSet(),0));
-$("#openFusion2").addEventListener("click",()=>open(fusionSet(),0));
-$("#openFusion3").addEventListener("click",()=>open(fusionSet(),0));
+["#openFusion","#openFusion2","#openFusion3"].forEach(id=>{const b=$(id);if(b)b.addEventListener("click",()=>open(fusionSet(),0))});
 $$("#fusionRail .sc").forEach(f=>f.addEventListener("click",()=>{const set=fusionSet();open(set,Math.max(0,set.imgs.indexOf(f.dataset.img)))}));
 
 /* ---------- copy + form ---------- */
@@ -260,6 +258,25 @@ if(!reduce){let f=0;setInterval(()=>{f++;const fr=f%25,s=Math.floor(f/25)%60,mi=
     c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")});
 })();
 
+/* ---------- TME video: plays in view, editing playhead follows the clip ---------- */
+(function(){
+  const v=$("#tmeVid");if(!v)return;
+  const head=$("#tmeHead"),tc=$("#tmeTc"),snd=$("#tmeSnd");
+  const fmt=t=>{const f=Math.floor((t%1)*25),s=Math.floor(t)%60,m=Math.floor(t/60);return `00:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}:${String(f).padStart(2,"0")}`};
+  v.addEventListener("timeupdate",()=>{if(!v.duration)return;head.style.left=(v.currentTime/v.duration*100)+"%";tc.textContent=fmt(v.currentTime)});
+  head.style.animation="none";
+  new IntersectionObserver(es=>{if(es[0].isIntersecting){if(!reduce)v.play().catch(()=>{})}else v.pause()},{threshold:.4}).observe(v);
+  snd.addEventListener("click",()=>{v.muted=!v.muted;snd.setAttribute("aria-pressed",String(!v.muted));snd.setAttribute("aria-label",t(v.muted?"snd.on":"snd.off"));if(v.paused)v.play().catch(()=>{})});
+})();
+
+/* ---------- live case: highlight current chapter ---------- */
+(function(){
+  const links=$$(".chapters a");if(!links.length)return;
+  const map=new Map(links.map(a=>[a.getAttribute("href").slice(1),a]));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("on"));const a=map.get(e.target.id);if(a)a.classList.add("on")}}),{rootMargin:"-45% 0px -50% 0px"});
+  [...map.keys()].forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el)});
+})();
+
 applyLang();
 
 /* ---------- motion ---------- */
@@ -325,11 +342,12 @@ ScrollTrigger.create({trigger:"#gantt",start:"top 85%",once:true,onEnter:()=>{
 }});
 gsap.from(".pl",{y:40,opacity:0,duration:1,stagger:.12,ease:"power3.out",scrollTrigger:{trigger:".pillars",start:"top 85%",once:true}});
 
-/* dashboard */
-gsap.from(".dash .tile",{y:40,opacity:0,duration:.9,stagger:.06,ease:"power3.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
-gsap.from(".dash .bars i,.dash .lbars i",{scaleY:0,duration:1,stagger:.04,delay:.3,ease:"power3.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
-gsap.from(".dash .dots12 i,.dash .grid25 i",{scale:0,opacity:0,duration:.4,stagger:.02,delay:.4,ease:"back.out(2)",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
-gsap.from(".dash .spark .sl",{strokeDasharray:300,strokeDashoffset:300,duration:1.6,delay:.3,ease:"power2.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
+/* highlights HUD */
+gsap.from(".hud .hc",{y:24,opacity:0,duration:.8,stagger:.06,ease:"power3.out",scrollTrigger:{trigger:".hud",start:"top 88%",once:true}});
+gsap.from(".hud .hb i",{scaleY:0,transformOrigin:"bottom",duration:.8,stagger:.03,delay:.3,ease:"power3.out",scrollTrigger:{trigger:".hud",start:"top 88%",once:true}});
+gsap.from(".hud .hg i",{scale:0,opacity:0,duration:.35,stagger:.02,delay:.3,ease:"back.out(2)",scrollTrigger:{trigger:".hud",start:"top 88%",once:true}});
+/* process phases */
+gsap.from(".phase",{y:60,opacity:0,duration:.9,stagger:.09,ease:"power3.out",scrollTrigger:{trigger:".phases",start:"top 85%",once:true}});
 /* language bars */
 gsap.from(".lr .bar i",{scaleX:0,duration:1.2,stagger:.08,ease:"power3.out",scrollTrigger:{trigger:".langs",start:"top 88%",once:true}});
 

@@ -314,3 +314,25 @@ Object.assign(window.I18N.en,{"fc.c1t":"Search by place and date","fc.c1s":"City
 Object.assign(window.I18N.pt,{"fc.c1t":"Busca por local e data","fc.c1s":"Cidade, bairro ou CEP, mais o dia que você precisa.","fc.c2t":"Cada sala, uma página","fc.c2s":"Fotos, descrição, comodidades e a agenda por hora.","fc.c3t":"Preço a um toque","fc.c3s":"Um rodapé fixo mantém o valor da hora e o botão Reservar sempre à mão.","fc.c4t":"A página da sala no desktop","fc.c4s":"Galeria, detalhes e um cartão de preço que acompanha a leitura.","fc.c5t":"Galeria em tela cheia","fc.c5s":"O profissional escolhe a sala pelas fotos, então elas ganham a tela inteira.","fc.c6t":"Reserva confirmada","fc.c6s":"O e-mail que o dono do espaço recebe, com check-in, checkout e total."});
 Object.assign(window.I18N.en,{"pr.eyebrow":"Live prototype","pr.title":"Step inside the product","pr.sub":"Built from the Figma file. Tap the phone or pick a step: search, choose a room, book the hours, get the confirmation.","pr.s0":"Search","pr.s1":"Room","pr.s2":"Schedule","pr.s3":"Confirmed"});
 Object.assign(window.I18N.pt,{"pr.eyebrow":"Protótipo navegável","pr.title":"Entre no produto","pr.sub":"Feito a partir do arquivo no Figma. Toque no celular ou escolha uma etapa: buscar, escolher a sala, reservar os horários e receber a confirmação.","pr.s0":"Busca","pr.s1":"Sala","pr.s2":"Agenda","pr.s3":"Confirmada"});
+Object.assign(window.I18N.en,{"lv.pill":"Live case","ch.1":"Product","ch.2":"Process","ch.3":"Blueprint","ch.4":"Prototype",
+"ph.h1":"From the first interview to the live product:","ph.h2":"six phases of thinking, testing and building","ph.h3":"to make booking a room effortless.",
+"ph.d":"Discovery","ph.d1":"User interviews","ph.d2":"Problem definition","ph.d3":"Competitor analysis",
+"ph.b":"Branding","ph.b1":"Logo & identity","ph.b2":"Social launch","ph.b3":"Brand in context",
+"ph.u":"UX Design","ph.u1":"User flows","ph.u2":"Wireframes","ph.u3":"Information architecture",
+"ph.i":"UI Design","ph.i1":"Colour & type","ph.i2":"High-fidelity screens","ph.i3":"Annotated hand-off",
+"ph.l":"Build & Launch","ph.l1":"Outsourced dev squad","ph.l2":"Usability tests","ph.l3":"Web Summit Lisbon",
+"ph.m":"Match AI","ph.m1":"Professional ↔ room matching","ph.m2":"Smart recommendations","ph.m3":"Heatmaps (Clarity)",
+"bp.note":"Rebuilt from the original Figma file: Inter, the #FF5900 to #FF0000 gradient, #636363 text and the red hand-off notes.","bp.replay":"Replay sketch",
+"hud.title":"Career at a glance","hud.upd":"Updated Oct 2026","hud.years":"years leading projects","hud.countries":"countries · BR AR AU ES","hud.rework":"less manual rework","hud.states":"states use our dashboards","hud.sites":"sites run in Melbourne","hud.ws":"RN startup on Web Summit stage",
+"v.tme.d2":"Logo animation for a cardiology telemedicine company: a heartbeat line drawn out of a digital grid.","snd.on":"Turn sound on","snd.off":"Turn sound off"});
+Object.assign(window.I18N.pt,{"lv.pill":"Case ao vivo","ch.1":"Produto","ch.2":"Processo","ch.3":"Blueprint","ch.4":"Protótipo",
+"ph.h1":"Da primeira entrevista ao produto no ar:","ph.h2":"seis fases de pensar, testar e construir","ph.h3":"para que reservar uma sala fosse simples.",
+"ph.d":"Descoberta","ph.d1":"Entrevistas com usuários","ph.d2":"Definição do problema","ph.d3":"Análise de concorrentes",
+"ph.b":"Branding","ph.b1":"Logo e identidade","ph.b2":"Lançamento nas redes","ph.b3":"Marca em contexto",
+"ph.u":"UX Design","ph.u1":"Fluxos de usuário","ph.u2":"Wireframes","ph.u3":"Arquitetura da informação",
+"ph.i":"UI Design","ph.i1":"Cor e tipografia","ph.i2":"Telas em alta fidelidade","ph.i3":"Hand-off anotado",
+"ph.l":"Build e lançamento","ph.l1":"Squad de dev terceirizado","ph.l2":"Testes de usabilidade","ph.l3":"Web Summit Lisboa",
+"ph.m":"Match AI","ph.m1":"Match profissional ↔ sala","ph.m2":"Recomendações inteligentes","ph.m3":"Mapas de calor (Clarity)",
+"bp.note":"Refeito a partir do arquivo original no Figma: Inter, o degradê de #FF5900 a #FF0000, texto em #636363 e as notas vermelhas de hand-off.","bp.replay":"Refazer esboço",
+"hud.title":"Carreira em um olhar","hud.upd":"Atualizado em out 2026","hud.years":"anos liderando projetos","hud.countries":"países · BR AR AU ES","hud.rework":"menos retrabalho manual","hud.states":"estados usam nossos dashboards","hud.sites":"sites operados em Melbourne","hud.ws":"startup do RN no palco do Web Summit",
+"v.tme.d2":"Animação de logo para uma empresa de telemedicina cardiológica: a linha de batimento surge de uma grade digital.","snd.on":"Ligar som","snd.off":"Desligar som"});
