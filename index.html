@@ -110,7 +110,8 @@
         <a href="#ch-product"><b>01</b><span data-i18n="ch.1">Product</span></a>
         <a href="#ch-process"><b>02</b><span data-i18n="ch.2">Process</span></a>
         <a href="#ch-blueprint"><b>03</b><span data-i18n="ch.3">Blueprint</span></a>
-        <a href="#proto"><b>04</b><span data-i18n="ch.4">Prototype</span></a>
+        <a href="#ch-heat"><b>04</b><span data-i18n="ch.5">Heatmap</span></a>
+        <a href="#proto"><b>05</b><span data-i18n="ch.4">Prototype</span></a>
       </nav>
 
       <div class="chapter" id="ch-product">
@@ -151,29 +152,29 @@
           <h3 class="ch-h"><span data-i18n="ph.h1">From the first interview to the live product:</span> <em data-i18n="ph.h2">six phases of thinking, testing and building</em> <span data-i18n="ph.h3">to make booking a room effortless.</span></h3>
         </div>
         <div class="phases">
-          <article class="phase" data-reveal>
+          <article class="phase">
             <header><h4 data-i18n="ph.d">Discovery</h4><span class="pn">01</span></header>
             <ul><li data-i18n="ph.d1">User interviews</li><li data-i18n="ph.d2">Problem definition</li><li data-i18n="ph.d3">Competitor analysis</li></ul>
           </article>
-          <article class="phase hot" data-reveal>
+          <article class="phase hot">
             <header><h4 data-i18n="ph.b">Branding</h4><span class="pn">02</span></header>
             <ul><li data-i18n="ph.b1">Logo & identity</li><li data-i18n="ph.b2">Social launch</li><li data-i18n="ph.b3">Brand in context</li></ul>
           </article>
-          <article class="phase" data-reveal>
+          <article class="phase">
             <header><h4 data-i18n="ph.u">UX Design</h4><span class="pn">03</span></header>
             <ul><li data-i18n="ph.u1">User flows</li><li data-i18n="ph.u2">Wireframes</li><li data-i18n="ph.u3">Information architecture</li></ul>
           </article>
-          <article class="phase hot" data-reveal>
+          <article class="phase hot">
             <header><h4 data-i18n="ph.i">UI Design</h4><span class="pn">04</span></header>
             <ul><li data-i18n="ph.i1">Colour & type</li><li data-i18n="ph.i2">High-fidelity screens</li><li data-i18n="ph.i3">Annotated hand-off</li></ul>
           </article>
-          <article class="phase" data-reveal>
+          <article class="phase">
             <header><h4 data-i18n="ph.l">Build & Launch</h4><span class="pn">05</span></header>
             <ul><li data-i18n="ph.l1">Outsourced dev squad</li><li data-i18n="ph.l2">Usability tests</li><li data-i18n="ph.l3">Web Summit Lisbon</li></ul>
           </article>
-          <article class="phase hot" data-reveal>
+          <article class="phase hot">
             <header><h4 data-i18n="ph.m">Match AI</h4><span class="pn">06</span></header>
-            <ul><li data-i18n="ph.m1">Professional ↔ room matching</li><li data-i18n="ph.m2">Smart recommendations</li><li data-i18n="ph.m3">Heatmaps (Clarity)</li></ul>
+            <ul><li data-i18n="ph.m1">AI room suggestions</li><li data-i18n="ph.m2">Matched to each professional's needs</li><li data-i18n="ph.m3">Ranked by fit</li></ul>
           </article>
         </div>
       </div>
@@ -194,9 +195,40 @@
         </div>
       </div>
 
+      <div class="chapter" id="ch-heat">
+        <div class="hm-wrap">
+          <div class="hm-side" data-reveal>
+            <p class="ch-tag"><b>04</b> <span data-i18n="ch.5">Heatmap</span></p>
+            <h3 class="hm-h"><span data-i18n="hm.h1">Revealing what professionals see.</span> <em data-i18n="hm.h2">And miss.</em></h3>
+            <p class="hm-p" data-i18n="hm.p">We used Microsoft Clarity session recordings and heatmaps, alongside user tests, to see where professionals looked, clicked and stopped scrolling on the room page, and to decide what to redesign next.</p>
+            <div class="hm-tabs" role="tablist" aria-label="Heatmap type">
+              <button type="button" role="tab" data-mode="attention" aria-selected="true" data-i18n="hm.t1">Attention</button>
+              <button type="button" role="tab" data-mode="clicks" aria-selected="false" data-i18n="hm.t2">Clicks</button>
+              <button type="button" role="tab" data-mode="scroll" aria-selected="false" data-i18n="hm.t3">Scroll depth</button>
+            </div>
+            <p class="hm-legal" data-i18n="hm.legal">Values shown are illustrative.</p>
+          </div>
+          <div class="hm" id="hm" data-reveal>
+            <div class="hm-bar"><i></i><i></i><i></i><span>fusionclinic.com.br / sala-fusion-04</span><b class="hm-live"><em></em>Clarity</b></div>
+            <div class="hm-view" id="hmView">
+              <img src="assets/img/fusion-desktop-room.jpg" alt="Fusion Clinic room page with an attention heatmap over it" loading="lazy">
+              <canvas id="hmCanvas" aria-hidden="true"></canvas>
+              <div class="hm-scale" aria-hidden="true"><span class="hm-knob" id="hmKnob"></span></div>
+              <div class="hm-line" id="hmLine" aria-hidden="true"></div>
+              <div class="hm-tip" id="hmTip" aria-live="polite">
+                <span class="hm-badge" id="hmBadge">Higher attention</span>
+                <p class="hm-big"><b id="hmPct">34%</b></p>
+                <p class="hm-what" id="hmWhat">of users' time is spent on the photo gallery.</p>
+                <dl><div><dt data-i18n="hm.avg1">Avg. time here</dt><dd id="hmT1">21.4s</dd></div><div><dt data-i18n="hm.avg2">Avg. time on page</dt><dd>58.2s</dd></div></dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="chapter proto" id="proto">
         <div class="proto-head" data-reveal>
-          <div><p class="ch-tag"><b>04</b> <span data-i18n="ch.4">Prototype</span></p><h3 class="ch-h sm" data-i18n="pr.title">Step inside the product</h3><p class="proto-sub" data-i18n="pr.sub">Tap the phone or pick a step.</p></div>
+          <div><p class="ch-tag"><b>05</b> <span data-i18n="ch.4">Prototype</span></p><h3 class="ch-h sm" data-i18n="pr.title">Step inside the product</h3><p class="proto-sub" data-i18n="pr.sub">Tap the phone or pick a step.</p></div>
           <button class="btn ghost" type="button" id="openFusion3" data-i18n="fc.open">View all screens</button>
         </div>
         <div class="proto-stage">
@@ -420,5 +452,6 @@
 <script src="js/i18n.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/blueprint.js" defer></script>
+<script src="js/heatmap.js" defer></script>
 </body>
 </html>
