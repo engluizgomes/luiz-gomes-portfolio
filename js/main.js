@@ -148,15 +148,16 @@ function cardVis(k){
 }
 function renderGallery(silent){
   const g=$("#dgrid");if(!g)return;
-  g.innerHTML=CASES.map((k,i)=>{
-    const cp=(window.CASE_COPY||{})[k.s]||{};const show=filter==="all"||k.cat.includes(filter);
-    return `<button type="button" class="dc" data-i="${i}" ${show?"":"hidden"} style="--c:${k.bg}" aria-label="${esc(t("d.view")+": "+k.c)}">
+  const card=(k,i,dup)=>{const cp=(window.CASE_COPY||{})[k.s]||{};
+    return `<button type="button" class="dc" data-i="${i}" style="--c:${k.bg}" ${dup?'aria-hidden="true" tabindex="-1"':`aria-label="${esc(t("d.view")+": "+k.c)}"`}>
       <span class="dc-txt"><span class="dc-client">${esc(k.c)}</span><span class="dc-title">${esc(L(cp.t)||k.c)}</span><span class="dc-sub">${esc(L(cp.s)||"")}</span><span class="dc-tags">${k.cat.map(c=>esc(t(CAT[c]))).join(" · ")}</span></span>
       ${cardVis(k)}
-    </button>`}).join("");
-  if(!silent&&window.gsap&&!reduce){
-    gsap.fromTo($$(".dc:not([hidden])",g),{opacity:0,y:30},{opacity:1,y:0,duration:.7,stagger:.05,ease:"power3.out"});
-  }
+    </button>`};
+  const list=CASES.map((k,i)=>[k,i]).filter(([k])=>filter==="all"||k.cat.includes(filter));
+  let items=list;while(items.length<6)items=items.concat(list);
+  const html=items.map(([k,i])=>card(k,i,false)).join("");
+  g.innerHTML=`<div class="dmq"><div class="dmq-track" style="--dur:${items.length*6}s">${html}${items.map(([k,i])=>card(k,i,true)).join("")}</div></div>`;
+  if(!silent&&window.gsap&&!reduce)gsap.fromTo(g,{opacity:0},{opacity:1,duration:.6});
   if(window.ScrollTrigger)ScrollTrigger.refresh();
 }
 $$(".filters button").forEach(b=>b.addEventListener("click",()=>{
@@ -202,6 +203,53 @@ $("#cForm").addEventListener("submit",e=>{
 /* ---------- timecode ---------- */
 if(!reduce){let f=0;setInterval(()=>{f++;const fr=f%25,s=Math.floor(f/25)%60,mi=Math.floor(f/1500)%60;
   const tc=`00:${String(mi).padStart(2,"0")}:${String(s).padStart(2,"0")}:${String(fr).padStart(2,"0")}`;$$("[data-tc]").forEach(el=>el.textContent=tc)},40)}
+
+
+/* ---------- Fusion live prototype ---------- */
+(function(){
+  const P=$("#proto");if(!P)return;
+  const views=$("#views",P),tap=$("#tap",P),slots=$$("#slots button",P);
+  let step=0,timer=null,paused=0,typing=null,visible=false;
+  const fmt=n=>"R$ "+n.toFixed(2).replace(".",",");
+  function totals(){const n=slots.filter(b=>b.classList.contains("sel")).length;
+    $("#hrs",P).textContent=n+(n===1?" hora":" horas");$("#tot",P).textContent=fmt(n*30);$("#tot2",P).textContent=fmt(Math.max(n,1)*30)}
+  function type(){clearInterval(typing);const txt="Natal, Lagoa Nova";$$("[data-typed]",P).forEach(el=>el.textContent="");let i=0;
+    if(reduce){$$("[data-typed]",P).forEach(el=>el.textContent=txt);return}
+    typing=setInterval(()=>{i++;$$("[data-typed]",P).forEach(el=>el.textContent=txt.slice(0,i));if(i>=txt.length)clearInterval(typing)},70)}
+  function setStep(n){step=(n+4)%4;views.style.transform=`translateX(-${step*25}%)`;
+    $$(".fl",P).forEach(f=>f.classList.toggle("on",+f.dataset.step===step));
+    $$(".steps button",P).forEach(b=>b.setAttribute("aria-selected",+b.dataset.step===step));
+    if(step===0)type();
+    if(step===2){slots.forEach(b=>b.classList.remove("sel"));totals()}}
+  function tapAt(el){if(!el)return;const r=el.getBoundingClientRect(),s=$(".dev-scr",P).getBoundingClientRect();
+    tap.style.left=(r.left-s.left+r.width/2)+"px";tap.style.top=(r.top-s.top+r.height/2)+"px";
+    tap.classList.remove("on");void tap.offsetWidth;tap.classList.add("on");el.classList.add("press");setTimeout(()=>el.classList.remove("press"),180)}
+  const goBtn=()=>$(`.v${step} [data-go]`,P);
+  async function auto(){
+    if(!visible||reduce||Date.now()<paused)return;
+    if(step===2){for(const i of [2,3,4,5]){if(step!==2||Date.now()<paused)return;tapAt(slots[i]);slots[i].classList.add("sel");totals();await new Promise(r=>setTimeout(r,520))}}
+    if(Date.now()<paused)return;
+    const b=goBtn();tapAt(b);setTimeout(()=>{if(Date.now()>=paused)setStep(+b.dataset.go)},380);
+  }
+  function loop(){clearInterval(timer);timer=setInterval(auto,step===2?4200:3400)}
+  P.addEventListener("click",e=>{
+    const go=e.target.closest("[data-go]"),sl=e.target.closest("#slots button"),st=e.target.closest(".steps button"),dy=e.target.closest(".days button");
+    if(go||sl||st||dy)paused=Date.now()+9000;
+    if(go){tapAt(go);setTimeout(()=>setStep(+go.dataset.go),200)}
+    if(sl){sl.classList.toggle("sel");totals()}
+    if(dy){$$(".days button",P).forEach(x=>x.classList.toggle("on",x===dy))}
+    if(st)setStep(+st.dataset.step);
+  });
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible){setStep(step);loop()}else clearInterval(timer)},{threshold:.35}).observe(P);
+  setStep(0);
+  if(!reduce&&window.matchMedia("(pointer:fine)").matches){
+    const stage=$(".proto-stage",P);
+    stage.addEventListener("mousemove",e=>{const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      $$(".fl",P).forEach((f,i)=>{const d=(i%3+1)*10;f.style.marginLeft=(x*d)+"px";f.style.marginTop=(y*d)+"px"});
+      $("#dev",P).style.transform=`perspective(1200px) rotateY(${x*8}deg) rotateX(${-y*6}deg)`});
+    stage.addEventListener("mouseleave",()=>{$("#dev",P).style.transform="";$$(".fl",P).forEach(f=>{f.style.marginLeft="";f.style.marginTop=""})});
+  }
+})();
 
 applyLang();
 
@@ -277,7 +325,7 @@ gsap.from(".dash .spark .sl",{strokeDasharray:300,strokeDashoffset:300,duration:
 gsap.from(".lr .bar i",{scaleX:0,duration:1.2,stagger:.08,ease:"power3.out",scrollTrigger:{trigger:".langs",start:"top 88%",once:true}});
 
 /* gallery boards */
-ScrollTrigger.batch(".dc",{start:"top 92%",once:true,onEnter:b=>gsap.from(b,{opacity:0,y:50,duration:1,stagger:.08,ease:"power3.out"})});
+
 
 /* contact headline */
 gsap.from(".c-h .w",{yPercent:60,opacity:0,duration:1.1,stagger:.12,ease:"expo.out",scrollTrigger:{trigger:".contact",start:"top 75%",once:true}});

@@ -171,7 +171,7 @@ Object.assign(window.I18N.en,{
   "cap.r.t":"Research & UX","cap.r.d":"User tests, heatmaps and session recordings to see where people get stuck, then redesign around it.",
   "cap.d.t":"Data","cap.d.d":"Dashboards and data visualisation that turn operations into decisions, from SQL to the final chart.",
   "cap.o.t":"Delivery & Operations","cap.o.d":"Project governance, OKRs, supply chain and multi-site operations, with teams across time zones.",
-  "career.eyebrow":"Career map","career.title":"Seven years on one timeline",
+  "career.eyebrow":"Career map","career.title":"Eight years on one timeline",
   "career.lede":"Roles as bars, qualifications as milestones. Select any item to read the story behind it.",
   "career.work":"Work","career.study":"Education","career.now":"Today","career.expected":"expected",
   "career.legend.p":"Product & tech","career.legend.o":"Operations","career.legend.d":"Data & public sector","career.legend.c":"Consulting & business",
@@ -192,7 +192,7 @@ Object.assign(window.I18N.pt,{
   "cap.r.t":"Pesquisa e UX","cap.r.d":"Testes com usuários, mapas de calor e gravações de sessão para ver onde as pessoas travam e redesenhar a partir disso.",
   "cap.d.t":"Dados","cap.d.d":"Dashboards e visualização de dados que transformam operação em decisão, do SQL ao gráfico final.",
   "cap.o.t":"Entrega e Operações","cap.o.d":"Governança de projetos, OKRs, cadeia de suprimentos e operações multi-site, com times em fusos diferentes.",
-  "career.eyebrow":"Mapa de carreira","career.title":"Sete anos em uma linha do tempo",
+  "career.eyebrow":"Mapa de carreira","career.title":"Oito anos em uma linha do tempo",
   "career.lede":"Cargos como barras, formações como marcos. Selecione qualquer item para ler a história por trás.",
   "career.work":"Trabalho","career.study":"Formação","career.now":"Hoje","career.expected":"previsto",
   "career.legend.p":"Produto e tecnologia","career.legend.o":"Operações","career.legend.d":"Dados e setor público","career.legend.c":"Consultoria e negócios",
@@ -231,7 +231,7 @@ window.STORIES = [
    t:{en:"Better processes for local business",pt:"Processos melhores para o comércio local"},
    s:{en:"Process mapping and project planning for more than 25 member companies of Natal's retailers' chamber.",pt:"Mapeamento de processos e planejamento de projetos para mais de 25 empresas associadas à CDL Natal."},
    k:"25+", kl:{en:"companies",pt:"empresas"}},
-  {id:"lk", org:"LK Serviços", kind:"c", vis:"tender", when:{en:"Now",pt:"Atual"}, where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
+  {id:"lk", org:"LK Serviços", kind:"c", vis:"tender", when:{en:"2019–now",pt:"2019–atual"}, where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
    role:{en:"CEO · Consulting engineer",pt:"CEO · Engenheiro consultor"},
    t:{en:"From the street to public tenders",pt:"Da rua às licitações públicas"},
    s:{en:"Leading a Natal services company with its own truck and field team as it structures itself to compete for public contracts.",pt:"À frente de uma empresa de serviços de Natal, com caminhão e equipe próprios, que se estrutura para disputar contratos públicos."},
@@ -240,15 +240,15 @@ window.STORIES = [
 
 /* Career map. Dates as decimal years (2023.17 = Mar 2023). */
 window.TIMELINE = {
-  from:2019.75, to:2027.4,
+  from:2018.75, to:2027.4,
   work:[
+    {org:"LK Serviços", kind:"c", a:2019.0, b:null, story:"lk", c:"BR"},
     {org:"CDL Natal", kind:"c", a:2019.92, b:2021.0, story:"cdl", c:"BR"},
     {org:"Life Sprint", kind:"d", a:2022.0, b:2023.08, story:"lifesprint", c:"BR"},
     {org:"Fusion Clinic", kind:"p", a:2023.17, b:2024.92, story:"fusion", c:"BR"},
     {org:"CONTHABIL", kind:"p", a:2023.25, b:2024.42, story:"conthabil", c:"BR"},
     {org:"Origani", kind:"o", a:2024.92, b:2025.42, story:"origani", c:"AU"},
-    {org:"SNL", kind:"o", a:2025.42, b:2026.25, story:"snl", c:"AU"},
-    {org:"LK Serviços", kind:"c", a:2026.58, b:null, story:"lk", c:"BR"}
+    {org:"SNL", kind:"o", a:2025.42, b:2026.25, story:"snl", c:"AU"}
   ],
   study:[
     {at:2020.9, t:{en:"B.Sc. Industrial Engineering · UnP",pt:"Eng. de Produção · UnP"}, p:"eng"},
@@ -312,3 +312,5 @@ Object.assign(window.I18N.pt,{"db.eyebrow":"Destaques","db.title":"A carreira em
  "db.edu.l":"Formação","db.edu.v":"2 MBAs + Mestrado","db.pmi.l":"Comunidade","db.pmi.c":"Mentor · PMI Brasil e PMI-DF"});
 Object.assign(window.I18N.en,{"fc.c1t":"Search by place and date","fc.c1s":"City, neighbourhood or postcode, plus the day you need.","fc.c2t":"Every room, one page","fc.c2s":"Photos, description, amenities and the hourly calendar.","fc.c3t":"Price one tap away","fc.c3s":"A fixed footer keeps the hourly rate and Book button in reach.","fc.c4t":"The room page on desktop","fc.c4s":"Gallery, details and a price card that follows the reader.","fc.c5t":"Full-screen gallery","fc.c5s":"Professionals judge a room by its photos, so they get the whole screen.","fc.c6t":"Booking confirmed","fc.c6s":"The email the space owner receives, with check-in, checkout and total."});
 Object.assign(window.I18N.pt,{"fc.c1t":"Busca por local e data","fc.c1s":"Cidade, bairro ou CEP, mais o dia que você precisa.","fc.c2t":"Cada sala, uma página","fc.c2s":"Fotos, descrição, comodidades e a agenda por hora.","fc.c3t":"Preço a um toque","fc.c3s":"Um rodapé fixo mantém o valor da hora e o botão Reservar sempre à mão.","fc.c4t":"A página da sala no desktop","fc.c4s":"Galeria, detalhes e um cartão de preço que acompanha a leitura.","fc.c5t":"Galeria em tela cheia","fc.c5s":"O profissional escolhe a sala pelas fotos, então elas ganham a tela inteira.","fc.c6t":"Reserva confirmada","fc.c6s":"O e-mail que o dono do espaço recebe, com check-in, checkout e total."});
+Object.assign(window.I18N.en,{"pr.eyebrow":"Live prototype","pr.title":"Step inside the product","pr.sub":"Built from the Figma file. Tap the phone or pick a step: search, choose a room, book the hours, get the confirmation.","pr.s0":"Search","pr.s1":"Room","pr.s2":"Schedule","pr.s3":"Confirmed"});
+Object.assign(window.I18N.pt,{"pr.eyebrow":"Protótipo navegável","pr.title":"Entre no produto","pr.sub":"Feito a partir do arquivo no Figma. Toque no celular ou escolha uma etapa: buscar, escolher a sala, reservar os horários e receber a confirmação.","pr.s0":"Busca","pr.s1":"Sala","pr.s2":"Agenda","pr.s3":"Confirmada"});
