@@ -1220,3 +1220,130 @@ dialog.lb::backdrop{background:rgba(8,9,11,.92);backdrop-filter:blur(4px)}
 .hm-tip dd{margin:0;font-weight:600;color:#111}
 .hm-tip.no-t dl{display:none}
 @media (max-width:1000px){.hm-wrap{grid-template-columns:1fr}.hm-tip{width:min(240px,70%);padding:12px}.hm-big b{font-size:1.6rem}}
+
+/* =========================================================
+   v11 — ONE PALETTE (Fusion): ember dark + #FF5900 → #FF0000
+   Light/dark toggle now only changes the hero; the site is
+   committed to the warm dark look.
+   ========================================================= */
+:root,:root[data-theme="dark"],:root[data-theme="light"]{
+  --ember-0:#0D0907;--ember-1:#140F0C;--ember-2:#1B1410;--ember-3:#2A1C14;
+  --flame:#FF5900;--flame-2:#FF2E1F;--amber:#FFB020;--sand:#F4EFEA;--clay:#C9B9AD;--ash:#8E8279;
+}
+.tech{
+  --bg:#0D0907;--surface:#16100C;--ink:#F4EFEA;--muted:#B3A398;--line:#2A1E17;
+  --accent:#FF6A1A;--accent-ink:#140F0C;--tint:rgba(255,89,0,.14);--stage:#16100C;
+  --k-p:#FF6A1A;--k-r:#FFB020;--k-d:#FF8A4C;--k-o:#FF3D2E;--k-c:#F5C2A0;
+  --glass:rgba(255,140,80,.035);--glass-b:rgba(255,140,80,.12);--glass-hi:rgba(255,190,150,.14);
+  background:radial-gradient(120% 40% at 50% 0%,#2A1A10 0%,#0D0907 60%) top/100% 1600px no-repeat,#0D0907}
+.tech::before{background-image:linear-gradient(rgba(255,140,80,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,140,80,.035) 1px,transparent 1px)}
+#highlights,#work,#stories,#design,#video,#how,#career,#education{--glow:#FF5900}
+#stories,#how,#education{--glow:#FF2E1F}
+.tech .sec::after{opacity:.5}
+.tech .sec-h{background:linear-gradient(180deg,#FFFFFF 30%,#E6C9B4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tech .eyebrow{color:var(--clay)}
+.tech .btn{background:linear-gradient(90deg,#FF5900,#FF2E1F);border-color:transparent;color:#fff}
+.tech .btn:hover{background:#F4EFEA;color:#140F0C;border-color:#F4EFEA}
+.tech .btn.ghost{background:rgba(255,140,80,.05);border-color:rgba(255,140,80,.25);color:#F4EFEA}
+.tech .filters button[aria-pressed="true"]{background:linear-gradient(90deg,#FF5900,#FF2E1F);color:#fff;border-color:transparent}
+.tech .marquee{background:#140F0C;border-color:rgba(255,140,80,.14)}
+.tech .mq-row i{background:#FF5900}
+.tech .c-h .w:last-child{background:linear-gradient(90deg,#FFB020,#FF5900 45%,#FF2E1F);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tech .c-rows{border-color:#FF5900}
+.tech .hud{background:linear-gradient(180deg,rgba(255,120,60,.07),rgba(255,120,60,.02));border-color:rgba(255,140,80,.16)}
+.tech .hud-t i{background:#FF5900;box-shadow:0 0 10px #FF5900;animation:none}
+.tech .sv{background:radial-gradient(70% 70% at 50% 55%,color-mix(in srgb,var(--k) 30%,transparent),transparent 70%),linear-gradient(160deg,#1A120D,#0E0A08)}
+.tech .cap-vis{background:radial-gradient(80% 80% at 50% 60%,color-mix(in srgb,var(--k) 26%,transparent),transparent 75%),#120D0A}
+.tech .g-today{border-color:#FF5900}.tech .g-today span{color:#FF8A4C;background:#16100C}
+.tech .lr .bar i,.tech .dash-live i{background:linear-gradient(90deg,#FF5900,#FF2E1F)}
+.tech .legend li::before{background:var(--k)}
+.tech .timeline{background:#120D0A}
+.tech .trk.v i{background:linear-gradient(90deg,#FF5900,#FF8A4C)}
+.tech .timeline.alt .trk.v i{background:linear-gradient(90deg,#FFB020,#FF8A4C)}
+.tech .timeline.alt .viewer{background:radial-gradient(80% 90% at 70% 20%,#FF7A2E 0%,#3A1A0C 60%,#0D0907 100%)}
+.tech .dc{--cardbg:color-mix(in srgb,var(--c) 22%,#140F0C)}
+.tech .site-foot{border-color:rgba(255,140,80,.14)}
+.tech .tile,.tech .cap,.tech .pl,.tech .vid,.tech .gantt-wrap,.tech .gdetail{background:var(--glass)}
+/* nav pill in ember */
+.pill{background:rgba(20,14,11,.72);border-color:rgba(255,140,80,.18);color:#F4EFEA}
+.pill a{color:#C9B9AD}.pill a:hover{background:rgba(255,89,0,.14);color:#fff}
+.pill .pill-name,.pill .cta{color:#fff}
+.pill-tools{border-color:rgba(255,140,80,.2)}
+.lang{background:rgba(255,255,255,.06)}
+.lang button{color:#C9B9AD}.lang button[aria-pressed="true"]{background:#FF5900;color:#fff}
+.theme{display:none}
+.pill-tools{padding-left:6px}
+
+/* =========================================================
+   v11 — HERO: editorial orange poster
+   ========================================================= */
+.hero2{position:relative;min-height:clamp(640px,100vh,980px);overflow:hidden;isolation:isolate;color:#fff;
+  background:radial-gradient(70% 60% at 62% 38%,#FF7A3D 0%,#F0581E 45%,#D9461A 75%,#B8380F 100%)}
+.hero2::after{content:"";position:absolute;inset:auto 0 0 0;height:34%;z-index:3;pointer-events:none;background:linear-gradient(to bottom,transparent,rgba(13,9,7,.55) 70%,#0D0907)}
+.h2-grid{position:absolute;inset:0;z-index:0;pointer-events:none}
+.h2-grid i{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.12)}
+.h2-grid i:nth-child(1){left:4%}.h2-grid i:nth-child(2){left:34.7%}.h2-grid i:nth-child(3){left:65.3%}.h2-grid i:nth-child(4){left:96%}
+.h2-grid::before,.h2-grid::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.12)}
+.h2-grid::before{top:16%}.h2-grid::after{top:52%}
+.h2-grid b{position:absolute;left:var(--x);top:var(--y);width:14px;height:14px;transform:translate(-50%,-50%)}
+.h2-grid b::before,.h2-grid b::after{content:"";position:absolute;background:rgba(255,255,255,.7)}
+.h2-grid b::before{left:50%;top:0;bottom:0;width:1px}.h2-grid b::after{top:50%;left:0;right:0;height:1px}
+.h2-ghost{position:absolute;left:4%;right:4%;top:15%;z-index:1;margin:0;font-family:var(--display);font-weight:900;font-stretch:115%;
+  font-size:clamp(5rem,19vw,19rem);line-height:.8;letter-spacing:-.04em;text-align:center;color:rgba(255,255,255,.1);white-space:nowrap;user-select:none}
+.h2-photo{position:absolute;z-index:2;left:50%;bottom:0;width:min(46vw,640px);transform:translateX(-46%);margin:0}
+.h2-photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(80,20,0,.35));
+  -webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
+.h2-inner{position:relative;z-index:4;max-width:none;min-height:inherit;padding:calc(env(safe-area-inset-top,0px) + 120px) 4% 6%;display:grid;
+  grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;gap:24px}
+.h2-tag{grid-column:1;grid-row:1;align-self:start;margin-top:clamp(120px,22vh,240px);max-width:30ch;font-family:var(--display);font-weight:600;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.35;text-transform:uppercase;letter-spacing:.01em;text-indent:2.2em}
+.h2-card{grid-column:2;grid-row:1;justify-self:end;align-self:start;margin-top:clamp(140px,26vh,280px);width:clamp(180px,17vw,250px);background:#fff;border-radius:6px;padding:8px;text-decoration:none;color:#111;box-shadow:0 30px 60px -20px rgba(60,10,0,.5);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.h2-card:hover{transform:translateY(-6px) rotate(-1deg)}
+.h2-shot{display:block;aspect-ratio:1;overflow:hidden;border-radius:3px;background:#F4EFEA}
+.h2-shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.h2-meta{display:flex;justify-content:space-between;gap:8px;padding:9px 4px 3px;font-family:var(--body);font-size:.74rem;color:#444;background:#F4F4F5;margin:8px -8px -8px;padding:10px 12px;border-radius:0 0 6px 6px}
+.h2-meta b{color:#FF5900}
+.h2-name{grid-column:1;grid-row:3;align-self:end}
+.h2-year{font-family:var(--display);font-weight:700;font-size:clamp(1rem,1.6vw,1.35rem);margin-bottom:8px}
+.h2-h{font-family:var(--display);font-weight:900;font-stretch:112%;font-size:clamp(3.6rem,10vw,9.5rem);line-height:.84;letter-spacing:-.045em;color:#fff}
+.h2-h .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.h2-h .ln > span{display:inline-block}
+.h2-talk{grid-column:2;grid-row:3;justify-self:end;align-self:end;position:relative;display:flex;align-items:center;gap:14px;padding:10px;padding-right:12px;width:min(380px,100%);
+  background:#0D0907;color:#fff;border-radius:4px;text-decoration:none;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transition:transform .4s}
+.h2-talk:hover{transform:translateY(-4px)}
+.h2-av{width:84px;height:84px;flex:none;overflow:hidden;border-radius:2px;background:#E85A2C}
+.h2-av img{width:100%;height:auto;transform:scale(1.9) translateY(18%)}
+.h2-tt{display:grid;gap:2px;flex:1;min-width:0}
+.h2-tt small{font-size:.8rem;color:#C9B9AD}
+.h2-tt b{font-family:var(--display);font-size:1.1rem;margin-top:10px}
+.h2-tt em{font-style:normal;font-size:.8rem;color:#C9B9AD}
+.h2-arrow{align-self:flex-end;width:40px;height:40px;display:grid;place-items:center;background:#fff;color:#111;font-size:1.1rem;flex:none}
+.h2-star{position:absolute;right:12px;top:8px;color:#C9B9AD;font-size:.9rem}
+.h2-talk:focus-visible,.h2-card:focus-visible{outline:2px solid #fff;outline-offset:4px}
+/* hero → page */
+.tech{margin-top:0}
+.tech-intro{display:none}
+@media (max-width:900px){
+  .hero2{min-height:auto}
+  .h2-inner{grid-template-columns:1fr;grid-template-rows:auto;padding-top:calc(env(safe-area-inset-top,0px) + 96px);padding-bottom:28px;gap:14px}
+  .h2-tag{grid-column:1;grid-row:1;margin-top:0;font-size:.95rem;max-width:26ch}
+  .h2-card{display:none}
+  .h2-photo{position:relative;left:auto;transform:none;width:min(92vw,460px);margin:6px auto -40px;order:0}
+  .h2-ghost{top:26%}
+  .h2-name{grid-row:auto}
+  .h2-talk{grid-column:1;grid-row:auto;justify-self:stretch;width:100%}
+  .hero2{display:flex;flex-direction:column}
+  .hero2 .h2-inner{display:flex;flex-direction:column}
+}
+.hero2{height:max(680px,100vh);min-height:0;max-height:1000px}
+.h2-inner{height:100%;min-height:0;padding-bottom:5%}
+.h2-tag{margin-top:clamp(90px,16vh,190px)}
+.h2-card{margin-top:clamp(110px,20vh,230px)}
+.h2-h{font-size:clamp(3.2rem,8.6vw,9rem);white-space:nowrap}
+.h2-name{grid-column:1/-1}
+.h2-talk{grid-row:3;grid-column:2}
+@media (max-width:900px){.hero2{height:auto;max-height:none}.h2-h{font-size:clamp(3rem,15vw,5rem);white-space:normal}.h2-name{grid-column:1}}
+.h2-photo{width:min(46vw,640px,60vh)}
+@media (max-width:900px){.h2-photo{width:min(92vw,440px)}.h2-tag,.h2-card{margin-top:0}.h2-inner{padding-top:28px}.hero2{padding-top:calc(env(safe-area-inset-top,0px) + 70px)}}
+.h2-inner{grid-template-rows:auto minmax(0,1fr) auto;padding-bottom:clamp(28px,4vh,56px)}
+.h2-av{width:72px;height:72px}
+@media (max-height:760px) and (min-width:901px){.h2-h{font-size:clamp(3rem,7.4vw,7rem)}.h2-tag{margin-top:clamp(70px,12vh,140px)}}

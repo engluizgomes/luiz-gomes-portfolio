@@ -293,15 +293,18 @@ if(window.Lenis){
 /* intro */
 const tl=gsap.timeline({defaults:{ease:"expo.out"}});
 tl.from(".pill",{y:-40,opacity:0,duration:1})
-  .from(".hero-h .ln > span",{yPercent:110,duration:1.2,stagger:.1},"<.1")
-  .fromTo(".hero-h .u",{"--ux":0},{"--ux":1,duration:1,ease:"power3.inOut"},"-=.6")
-  .from(".hero-sub,.hero-links",{y:16,opacity:0,duration:.9,stagger:.08},"-=.9")
-  .from(".portrait img",{y:120,opacity:0,duration:1.6,ease:"power4.out"},"-=.9")
-  .from(".halo",{scale:.6,opacity:0,duration:1.6},"<");
+  .from(".h2-ghost",{opacity:0,y:40,duration:1.6,ease:"power3.out"},"<")
+  .from(".h2-photo img",{y:140,opacity:0,scale:1.04,duration:1.6,ease:"power4.out"},"<.1")
+  .from(".h2-h .ln > span",{yPercent:110,duration:1.2,stagger:.12},"-=1.1")
+  .from(".h2-year,.h2-tag",{y:16,opacity:0,duration:.9,stagger:.08},"-=.9")
+  .from(".h2-card",{x:40,opacity:0,rotate:3,duration:1.1},"-=.8")
+  .from(".h2-talk",{y:30,opacity:0,duration:1},"-=.8")
+  .from(".h2-grid i,.h2-grid b",{opacity:0,duration:1.2,stagger:.03},"-=1.2");
 
-/* portrait parallax */
-gsap.to(".portrait img",{yPercent:8,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
-gsap.to(".halo",{scale:1.25,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
+/* hero parallax */
+gsap.to(".h2-photo img",{yPercent:6,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
+gsap.to(".h2-ghost",{xPercent:-8,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
+gsap.to(".h2-card",{y:-60,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
 
 /* reveals */
 ScrollTrigger.batch("[data-reveal]",{start:"top 90%",once:true,
