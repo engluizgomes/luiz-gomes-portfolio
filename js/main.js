@@ -251,6 +251,15 @@ if(!reduce){let f=0;setInterval(()=>{f++;const fr=f%25,s=Math.floor(f/25)%60,mi=
   }
 })();
 
+/* ---------- tech zone: cursor spotlight on glass ---------- */
+(function(){
+  const z=$("#tech");if(!z||reduce||!matchMedia("(pointer:fine)").matches)return;
+  const sel=".tile,.cap,.pl,.vid,.mini,.gdetail,.gantt-wrap";
+  z.querySelectorAll(sel).forEach(el=>el.classList.add("spot"));
+  z.addEventListener("pointermove",e=>{const c=e.target.closest(".spot");if(!c)return;const r=c.getBoundingClientRect();
+    c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")});
+})();
+
 applyLang();
 
 /* ---------- motion ---------- */
