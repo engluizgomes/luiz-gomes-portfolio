@@ -143,13 +143,9 @@ const imgs=k=>Array.from({length:k.n},(_,i)=>`assets/work/${k.s}-0${i+1}.jpg`);
 let filter="all";
 function cardVis(k){
   const im=imgs(k);
-  if(k.cat.includes("editorial"))return `<span class="dv dv-ed"><img src="${im[0]}" alt="" loading="lazy"></span>`;
-  if(k.social){
-    const back=im[1]?`<span class="iph iph-b"><span class="iph-s"><img src="${im[1]}" alt="" loading="lazy"></span></span>`:"";
-    return `<span class="dv dv-so">${back}<span class="iph iph-f"><span class="iph-s"><span class="iph-bar"><i></i>${esc(k.c)}</span><img src="${im[0]}" alt="" loading="lazy"><span class="iph-cap"><span class="iph-act"><i></i><i></i><i></i></span><span></span><span></span></span></span></span></span>`;
-  }
-  const back=im[1]?`<span class="pc pc-b"><img src="${im[1]}" alt="" loading="lazy"></span>`:"";
-  return `<span class="dv dv-br">${back}<span class="pc pc-f"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
+  if(k.cat.includes("editorial"))return `<span class="dv dv-ed"><span class="dv-one"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
+  if(k.social)return `<span class="dv dv-so"><span class="iph"><span class="iph-s"><span class="iph-bar"><i></i>${esc(k.c)}</span><img src="${im[0]}" alt="" loading="lazy"><span class="iph-cap"><span class="iph-act"><i></i><i></i><i></i></span><span></span><span></span></span></span></span></span>`;
+  return `<span class="dv dv-br"><span class="dv-one"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
 }
 function renderGallery(silent){
   const g=$("#dgrid");if(!g)return;
@@ -273,6 +269,11 @@ ScrollTrigger.create({trigger:"#gantt",start:"top 85%",once:true,onEnter:()=>{
 }});
 gsap.from(".pl",{y:40,opacity:0,duration:1,stagger:.12,ease:"power3.out",scrollTrigger:{trigger:".pillars",start:"top 85%",once:true}});
 
+/* dashboard */
+gsap.from(".dash .tile",{y:40,opacity:0,duration:.9,stagger:.06,ease:"power3.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
+gsap.from(".dash .bars i,.dash .lbars i",{scaleY:0,duration:1,stagger:.04,delay:.3,ease:"power3.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
+gsap.from(".dash .dots12 i,.dash .grid25 i",{scale:0,opacity:0,duration:.4,stagger:.02,delay:.4,ease:"back.out(2)",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
+gsap.from(".dash .spark .sl",{strokeDasharray:300,strokeDashoffset:300,duration:1.6,delay:.3,ease:"power2.out",scrollTrigger:{trigger:".dash",start:"top 85%",once:true}});
 /* language bars */
 gsap.from(".lr .bar i",{scaleX:0,duration:1.2,stagger:.08,ease:"power3.out",scrollTrigger:{trigger:".langs",start:"top 88%",once:true}});
 

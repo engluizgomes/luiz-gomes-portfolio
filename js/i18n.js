@@ -298,3 +298,15 @@ window.CASE_COPY = {
 };
 Object.assign(window.I18N.en,{"fc.cap1a":"Desktop","fc.cap1b":"Room page and weekly calendar","fc.cap2a":"Mobile","fc.cap2b":"Rooms from R$ 30/h"});
 Object.assign(window.I18N.pt,{"fc.cap1a":"Desktop","fc.cap1b":"Página da sala e agenda semanal","fc.cap2a":"Mobile","fc.cap2b":"Salas a partir de R$ 30/h"});
+Object.assign(window.I18N.en,{"db.eyebrow":"Highlights","db.title":"The career, in numbers","db.updated":"Updated Oct 2026",
+ "db.years.l":"Experience","db.years.c":"years leading projects","db.countries.l":"Countries","db.countries.c":"lived and worked in",
+ "db.rework.l":"Manual rework","db.before":"before","db.after":"after","db.states.l":"Dashboards adopted","db.states.c":"Brazilian states · Life Sprint",
+ "db.ws.v":"First startup from Rio Grande do Norte on stage","db.cto.l":"Promotion","db.cto.1":"Project manager","db.cto.2":"Tech lead",
+ "db.sites.l":"Sites operated","db.sites.c":"Melbourne · SNL","db.cdl.l":"Companies advised","db.lang.l":"Languages",
+ "db.edu.l":"Qualifications","db.edu.v":"2 MBAs + Master's","db.pmi.l":"Community","db.pmi.c":"Mentor · PMI Brasil & PMI-DF"});
+Object.assign(window.I18N.pt,{"db.eyebrow":"Destaques","db.title":"A carreira em números","db.updated":"Atualizado em out 2026",
+ "db.years.l":"Experiência","db.years.c":"anos liderando projetos","db.countries.l":"Países","db.countries.c":"onde vivi e trabalhei",
+ "db.rework.l":"Retrabalho manual","db.before":"antes","db.after":"depois","db.states.l":"Dashboards adotados","db.states.c":"estados brasileiros · Life Sprint",
+ "db.ws.v":"Primeira startup do Rio Grande do Norte no palco","db.cto.l":"Promoção","db.cto.1":"Gerente de projetos","db.cto.2":"Líder técnico",
+ "db.sites.l":"Sites operados","db.sites.c":"Melbourne · SNL","db.cdl.l":"Empresas atendidas","db.lang.l":"Idiomas",
+ "db.edu.l":"Formação","db.edu.v":"2 MBAs + Mestrado","db.pmi.l":"Comunidade","db.pmi.c":"Mentor · PMI Brasil e PMI-DF"});
