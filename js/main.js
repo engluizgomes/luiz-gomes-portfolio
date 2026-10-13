@@ -15,7 +15,7 @@ function applyLang(){
   document.title=t("meta.title");
   const md=$('meta[name="description"]');if(md)md.content=t("meta.desc");
   renderGallery(true);
-  renderStories();renderPillars();renderGantt();
+  renderStories();renderPillars();renderGantt();if(typeof renderMtl==='function')renderMtl();
 }
 
 /* ---------- v3: stories ---------- */
@@ -281,10 +281,42 @@ if(!reduce){let f=0;setInterval(()=>{f++;const fr=f%25,s=Math.floor(f/25)%60,mi=
 (function(){
   const t=$("#talk"),hero=$(".hero2"),ct=$("#contact");if(!t)return;
   let past=false,atEnd=false;setTimeout(()=>t.classList.add("in"),reduce?0:1600);
-  const upd=()=>{t.classList.toggle("is-mini",past);t.classList.toggle("hide",atEnd)};
+  const mob=matchMedia("(max-width:900px)");const upd=()=>{t.classList.toggle("is-mini",past||mob.matches);t.classList.toggle("hide",atEnd||(mob.matches&&!past))};
   if(hero)new IntersectionObserver(es=>{past=!es[0].isIntersecting||es[0].intersectionRatio<.55;upd()},{threshold:[0,.55,1]}).observe(hero);
   if(ct)new IntersectionObserver(es=>{atEnd=es[0].isIntersecting;upd()},{threshold:.2}).observe(ct);
 })();
+
+/* ---------- mobile: menu sheet ---------- */
+(function(){
+  const b=$("#burger"),sh=$("#msheet");if(!b||!sh)return;
+  const set=o=>{b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",t(o?"menu.close":"menu.open"));sh.hidden=!o;document.body.classList.toggle("menu-open",o);if(window.lenis)o?lenis.stop():lenis.start()};
+  b.addEventListener("click",()=>set(b.getAttribute("aria-expanded")!=="true"));
+  sh.addEventListener("click",e=>{if(e.target.closest("a"))set(false)});
+  addEventListener("keydown",e=>{if(e.key==="Escape")set(false)});
+})();
+
+/* ---------- mobile: swipe hints on horizontal rows ---------- */
+(function(){
+  if(!matchMedia("(max-width:760px)").matches)return;
+  const rows=[".story-list",".caps",".pillars",".vids",".phases",".live .psm",".hud-row"];
+  rows.forEach(sel=>$$(sel).forEach(r=>{
+    const n=r.children.length;if(n<2)return;
+    const d=document.createElement("div");d.className="swd";d.setAttribute("aria-hidden","true");
+    d.innerHTML=`<span class="swl">${t("swipe")} →</span>`+Array.from({length:n},(_,i)=>`<i class="${i?"":"on"}"></i>`).join("");
+    r.after(d);const dots=$$("i",d);
+    r.addEventListener("scroll",()=>{const w=r.scrollWidth-r.clientWidth;const k=w>0?Math.round(r.scrollLeft/w*(n-1)):0;dots.forEach((x,i)=>x.classList.toggle("on",i===k));d.classList.add("used")},{passive:true});
+  }));
+})();
+
+/* ---------- mobile: career as a list ---------- */
+function renderMtl(){
+  const el=$("#mtl");if(!el||!window.TIMELINE)return;
+  const f=y=>Math.floor(y);
+  const items=[...TIMELINE.work].sort((a,b)=>(b.b??9999)-(a.b??9999)||b.a-a.a);
+  el.innerHTML=items.map(w=>{const st=w.story==="fusion"?{t:{en:t("fc.st"),pt:t("fc.st")},role:{en:t("fc.role.v"),pt:t("fc.role.v")}}:(STORIES.find(x=>x.id===w.story)||{});
+    const yrs=`${f(w.a)} – ${w.b?f(w.b):t("career.now")}`;
+    return `<li style="--k:${K[w.kind]}"><a href="${w.story==="fusion"?"#fusion":"#s-"+w.story}"><span class="my">${yrs}</span><span class="mo"><b>${esc(w.org)}</b><small>${esc(L(st.role)||"")}</small><em>${esc(L(st.t)||"")}</em></span><span class="ma">→</span></a></li>`}).join("");
+}
 
 applyLang();
 

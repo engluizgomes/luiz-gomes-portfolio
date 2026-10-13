@@ -51,7 +51,7 @@ function update(x,y,px,py){
   if(mode==="attention"){const z=zoneAt(x,y);pct.textContent=z.a+"%";what.textContent=`${T("hm.of")} ${z[lang()]}.`;t1.textContent=z.t.toFixed(1)+"s";tip.classList.remove("no-t")}
   else if(mode==="clicks"){const c=clickAt(x,y);pct.textContent=c.a+"%";what.textContent=`${T("hm.clk")} ${c[lang()]}.`;tip.classList.add("no-t")}
   else{pct.textContent=reach(y)+"%";what.textContent=T("hm.scr")+".";tip.classList.add("no-t")}
-  const tw=tip.offsetWidth,th=tip.offsetHeight;let tx=px+24,ty=py-th/2;if(tx+tw>r.width-8)tx=px-tw-24;ty=Math.max(8,Math.min(r.height-th-8,ty));tip.style.transform=`translate(${tx}px,${ty}px)`;
+  if(matchMedia('(max-width:900px)').matches)return;const tw=tip.offsetWidth,th=tip.offsetHeight;let tx=px+24,ty=py-th/2;if(tx+tw>r.width-8)tx=px-tw-24;ty=Math.max(8,Math.min(r.height-th-8,ty));tip.style.transform=`translate(${tx}px,${ty}px)`;
 }
 /* auto tour through zones */
 const TOUR=[[447,514],[1122,920],[300,205],[300,1220],[520,880],[580,1530]];let ti=0,auto=true,timer=null;

@@ -32,6 +32,7 @@
   <a class="pill-l" href="https://linkedin.com/in/engluizgomes" target="_blank" rel="noopener">LinkedIn</a>
   <a class="pill-l cta" href="#contact" data-i18n="nav.contact">Get in touch</a>
   <span class="pill-tools">
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="msheet" aria-label="Open menu"><i></i><i></i></button>
     <span class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
@@ -42,6 +43,18 @@
   </span>
 </nav>
 
+<div class="msheet" id="msheet" hidden>
+  <nav aria-label="Mobile">
+    <a href="#highlights" data-i18n="nav.highlights">Highlights</a>
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#stories" data-i18n="st.eyebrow">More stories</a>
+    <a href="#design" data-i18n="nav.design">Design</a>
+    <a href="#career" data-i18n="nav.career">Career</a>
+    <a href="#education" data-i18n="e.eyebrow">Education</a>
+    <a href="#contact" data-i18n="nav.contact">Get in touch</a>
+  </nav>
+  <a class="ms-li" href="https://linkedin.com/in/engluizgomes" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
 <header class="hero2" id="top">
   <div class="h2-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><b style="--x:4%;--y:16%"></b><b style="--x:96%;--y:16%"></b><b style="--x:4%;--y:52%"></b><b style="--x:96%;--y:52%"></b><b style="--x:4%;--y:92%"></b><b style="--x:96%;--y:92%"></b></div>
   <p class="h2-ghost" aria-hidden="true">GOMES</p>
@@ -397,6 +410,7 @@
       <li style="--k:var(--k-c)" data-i18n="career.legend.c">Consulting &amp; business</li>
     </ul>
     <div class="gantt-wrap" data-reveal><div class="gantt" id="gantt"></div></div>
+    <ol class="mtl" id="mtl"></ol>
     <div class="gdetail" id="gdetail" aria-live="polite"></div>
   </div>
 </section>
