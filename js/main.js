@@ -306,7 +306,7 @@ tl.from(".pill",{y:-40,opacity:0,duration:1})
   .from(".h2-photo img",{y:140,opacity:0,scale:1.04,duration:1.6,ease:"power4.out"},"<.1")
   .from(".h2-h .ln > span",{yPercent:110,duration:1.2,stagger:.12},"-=1.1")
   .from(".h2-year,.h2-tag",{y:16,opacity:0,duration:.9,stagger:.08},"-=.9")
-  .from(".h2-card",{x:40,opacity:0,rotate:3,duration:1.1},"-=.8")
+  .from(".h2-build",{x:40,opacity:0,duration:1.1},"-=.8")
   .from(".h2-build .sel,.h2-build .ruler,.h2-build .guide",{opacity:0,duration:.6,stagger:.08},"-=.6")
   .from(".h2-grid i,.h2-grid b",{opacity:0,duration:1.2,stagger:.03},"-=1.2");
 
@@ -316,7 +316,7 @@ gsap.to(".h2-ghost",{xPercent:-8,ease:"none",scrollTrigger:{trigger:".hero2",sta
 gsap.to(".h2-build",{y:-60,ease:"none",scrollTrigger:{trigger:".hero2",start:"top top",end:"bottom top",scrub:true}});
 /* building the card: cursor drags it into place, guides snap */
 const btl=gsap.timeline({repeat:-1,repeatDelay:2.2,defaults:{ease:"power2.inOut"}});
-btl.set(".h2-cursor",{x:-140,y:260,opacity:0})
+btl.set(".h2-card",{rotation:0,x:0,y:0}).set(".h2-cursor",{x:-140,y:260,opacity:0})
    .to(".h2-cursor",{opacity:1,duration:.3})
    .to(".h2-cursor",{x:8,y:150,duration:1})
    .to(".h2-card",{x:-22,y:14,duration:.5,ease:"power1.out"},"+=.1")

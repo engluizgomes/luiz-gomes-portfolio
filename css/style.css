@@ -1401,3 +1401,22 @@ dialog.lb::backdrop{background:rgba(8,9,11,.92);backdrop-filter:blur(4px)}
 .h2-talk{opacity:0;transform:translateY(40px)}
 .h2-talk.in{opacity:1;transform:none}
 .h2-talk.in.hide{opacity:0;transform:translateY(30px)}
+
+/* v13 — hero always fits one screen: name visible on first view */
+@media (min-width:901px){
+  .hero2{height:100vh;height:100svh;min-height:560px;max-height:1100px}
+  .h2-inner{height:100%;min-height:0;grid-template-rows:auto 1fr auto;padding-top:calc(env(safe-area-inset-top,0px) + 96px);padding-bottom:clamp(24px,5vh,56px)}
+  .h2-tag{grid-row:2;align-self:center;margin-top:0;font-size:clamp(.95rem,min(1.5vw,2.6vh),1.3rem)}
+  .h2-build{grid-row:2;align-self:center;margin-top:0}
+  .h2-build .h2-card{width:clamp(160px,min(16vw,30vh),240px)}
+  .h2-year{font-size:clamp(.95rem,min(1.6vw,2.8vh),1.35rem)}
+  .h2-h{font-size:clamp(2.8rem,min(8.6vw,15vh),9rem)}
+  .h2-photo{top:auto;bottom:-8vh;width:min(58vw,960px,105vh)}
+  .h2-card:hover{transform:translateY(-4px)}
+}
+@media (min-width:901px){
+  .hero2{min-height:440px}
+  .h2-photo{top:calc(env(safe-area-inset-top,0px) + max(64px,8vh));bottom:auto;width:min(56vw,940px,112vh)}
+  .h2-inner{padding-top:calc(env(safe-area-inset-top,0px) + max(80px,11vh))}
+}
+.h2-meta span{white-space:nowrap}.h2-meta{font-size:clamp(.62rem,.8vw,.74rem)}
