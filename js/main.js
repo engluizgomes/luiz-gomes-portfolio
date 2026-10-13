@@ -33,14 +33,11 @@ function vis(st){
       <div class="mp"><svg viewBox="0 0 60 64"><path d="M22 2 L44 6 L56 22 L50 40 L40 60 L26 62 L18 46 L8 30 L10 12Z"/>${[[34,14],[44,24],[28,28],[40,38],[30,48],[22,20],[48,34]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3"/>`).join("")}</svg></div></div></div>`;
     case "sites":return `<div class="win"><div class="win-top"><i></i><i></i><i></i><span>${lang==="pt"?"painel de sites":"site board"} · Melbourne</span></div><div class="win-body v-sites">
       ${SNL_SITES.map((n,i)=>`<div class="st ${i===2||i===6?"w":""}"><b>${n}<i></i></b><span class="pg" style="--v:${[92,100,64,88,100,96,70,84][i]}%"></span></div>`).join("")}</div></div>`;
-    case "globe":return `<svg class="v-globe" viewBox="0 0 400 220" aria-hidden="true">
-      <path class="land" d="M178 40 Q205 22 232 34 Q236 58 214 66 Q222 96 206 128 Q190 140 182 112 Q170 86 176 64Z"/>
-      <path class="land" d="M236 30 Q300 14 352 40 Q360 70 330 84 Q300 96 276 86 Q250 76 240 58Z"/>
-      <path class="land" d="M310 150 Q340 140 362 152 Q366 176 344 184 Q318 186 308 170Z"/>
-      <path class="land" d="M60 40 Q110 30 128 54 Q118 80 98 92 Q112 120 104 160 Q90 176 82 150 Q74 116 70 92 Q48 70 60 40Z"/>
-      <path class="arc" d="M336 166 Q280 90 210 56"/><path class="arc" d="M336 166 Q326 120 300 70"/>
-      <circle class="pulse" cx="336" cy="166" r="8"/><circle class="hub" cx="336" cy="166" r="5"/><circle class="hub" cx="210" cy="56" r="4"/><circle class="hub" cx="300" cy="70" r="4"/>
-      <text x="344" y="196">Melbourne</text><text x="180" y="40">${lang==="pt"?"Europa":"Europe"}</text><text x="290" y="56">${lang==="pt"?"Ásia":"Asia"}</text></svg>`;
+    case "globe":return `<div class="v-map"><span class="dots" aria-hidden="true"></span><svg viewBox="0 0 1000 450" aria-hidden="true">
+      <path class="arc" d="M902.7 388.9 Q 760 150 525.5 109.3"/><path class="arc" d="M902.7 388.9 Q 900 250 837.4 157.1"/>
+      <circle class="pulse" cx="902.7" cy="388.9" r="10"/><circle class="hub" cx="902.7" cy="388.9" r="6"/>
+      <circle class="node" cx="525.5" cy="109.3" r="5"/><circle class="node" cx="837.4" cy="157.1" r="5"/>
+      <text x="902.7" y="420" text-anchor="middle">Melbourne</text><text x="525.5" y="92" text-anchor="middle">${lang==="pt"?"Europa":"Europe"}</text><text x="837.4" y="140" text-anchor="middle">${lang==="pt"?"Ásia":"Asia"}</text></svg></div>`;
     case "process":return `<div class="win"><div class="win-top"><i></i><i></i><i></i><span>${lang==="pt"?"mapa de processo":"process map"}</span></div><div class="win-body v-proc">
       ${[["As-is",[[0,30,lang==="pt"?"mapear":"map"],[34,30,lang==="pt"?"medir":"measure"]]],["To-be",[[30,34,lang==="pt"?"redesenhar":"redesign"],[68,30,lang==="pt"?"padronizar":"standardise"]]],[lang==="pt"?"Projeto":"Project",[[10,40,lang==="pt"?"plano":"plan"],[54,44,lang==="pt"?"implantar":"roll out"]]]].map(([n,bs])=>`<div class="lane"><span>${n}</span><div class="track">${bs.map(([a,w,l])=>`<i style="--a:${a}%;--w:${w}%">${l}</i>`).join("")}</div></div>`).join("")}</div></div>`;
     case "tender":return `<div class="win"><div class="win-top"><i></i><i></i><i></i><span>${lang==="pt"?"licitação":"public tender"}</span></div><div class="win-body v-tender">
@@ -140,34 +137,30 @@ $("#themeBtn").addEventListener("click",()=>{
   try{localStorage.setItem("lg-theme",root.dataset.theme)}catch(e){}
 });
 
-/* ---------- design gallery ---------- */
+/* ---------- design gallery (story cards) ---------- */
 const CAT={brand:"d.brand",social:"d.social",editorial:"d.editorial"};
 const imgs=k=>Array.from({length:k.n},(_,i)=>`assets/work/${k.s}-0${i+1}.jpg`);
-const ICONS=`<svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><path d="m22 3-9.5 18-2.5-8-8-2.5z"/></svg>`;
 let filter="all";
-function board(k){
-  const im=imgs(k),cls=[];
-  if(k.cat.includes("editorial"))cls.push("editorial");
+function cardVis(k){
+  const im=imgs(k);
+  if(k.cat.includes("editorial"))return `<span class="dv dv-ed"><img src="${im[0]}" alt="" loading="lazy"></span>`;
   if(k.social){
-    const back=im[1]?`<span class="sheet s3"><img src="${im[1]}" alt="" loading="lazy"></span>`:"";
-    const back2=im[2]?`<span class="sheet s2"><img src="${im[2]}" alt="" loading="lazy"></span>`:"";
-    return{cls,html:`${back2}${back}<span class="mphone"><span class="mscreen"><span class="mhead"><i></i><span>${esc(k.c)}</span></span><span class="mpost"><img src="${im[0]}" alt="" loading="lazy"></span><span class="mact">${ICONS}</span></span></span>`}
+    const back=im[1]?`<span class="iph iph-b"><span class="iph-s"><img src="${im[1]}" alt="" loading="lazy"></span></span>`:"";
+    return `<span class="dv dv-so">${back}<span class="iph iph-f"><span class="iph-s"><span class="iph-bar"><i></i>${esc(k.c)}</span><img src="${im[0]}" alt="" loading="lazy"><span class="iph-cap"><span class="iph-act"><i></i><i></i><i></i></span><span></span><span></span></span></span></span></span>`;
   }
-  if(im.length===1){cls.push("single");return{cls,html:`<span class="sheet s1"><img src="${im[0]}" alt="" loading="lazy"></span>`}}
-  return{cls,html:im.slice(0,3).map((src,i)=>`<span class="sheet s${i+1}"><img src="${src}" alt="" loading="lazy"></span>`).join("")};
+  const back=im[1]?`<span class="pc pc-b"><img src="${im[1]}" alt="" loading="lazy"></span>`:"";
+  return `<span class="dv dv-br">${back}<span class="pc pc-f"><img src="${im[0]}" alt="" loading="lazy"></span></span>`;
 }
 function renderGallery(silent){
   const g=$("#dgrid");if(!g)return;
   g.innerHTML=CASES.map((k,i)=>{
-    const b=board(k),cats=k.cat.map(c=>t(CAT[c])).join(" · ");
-    const show=filter==="all"||k.cat.includes(filter);
-    return `<button type="button" class="dc ${k.size==="wide"?"wide":""} ${b.cls.join(" ")}" data-i="${i}" ${show?"":"hidden"} style="--c:${k.bg}" aria-label="${esc(t("d.view")+": "+k.c)}">
-      <span class="board">${b.html}</span>
-      <span class="meta"><b>${esc(k.c)}</b><span>${esc(cats)}</span></span>
-      <span class="dsec">${esc(k.sec[lang])} · ${k.n} ${k.n>1?t("d.pieces"):t("d.piece")}</span>
+    const cp=(window.CASE_COPY||{})[k.s]||{};const show=filter==="all"||k.cat.includes(filter);
+    return `<button type="button" class="dc" data-i="${i}" ${show?"":"hidden"} style="--c:${k.bg}" aria-label="${esc(t("d.view")+": "+k.c)}">
+      <span class="dc-txt"><span class="dc-client">${esc(k.c)}</span><span class="dc-title">${esc(L(cp.t)||k.c)}</span><span class="dc-sub">${esc(L(cp.s)||"")}</span><span class="dc-tags">${k.cat.map(c=>esc(t(CAT[c]))).join(" · ")}</span></span>
+      ${cardVis(k)}
     </button>`}).join("");
   if(!silent&&window.gsap&&!reduce){
-    gsap.fromTo($$(".dc:not([hidden])",g),{opacity:0,y:30,scale:.98},{opacity:1,y:0,scale:1,duration:.7,stagger:.05,ease:"power3.out"});
+    gsap.fromTo($$(".dc:not([hidden])",g),{opacity:0,y:30},{opacity:1,y:0,duration:.7,stagger:.05,ease:"power3.out"});
   }
   if(window.ScrollTrigger)ScrollTrigger.refresh();
 }

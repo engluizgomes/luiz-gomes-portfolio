@@ -47,7 +47,7 @@ window.I18N = {
     "x.ls.r": "Software Project Coordinator", "x.ls.d": "B2B and B2G digital-health projects. Power BI dashboards for public management, now used in 12+ states.",
     "x.cdl.r": "Project & Process Consultant", "x.cdl.d": "Process mapping and project planning for 25+ member organisations of the local retailers' chamber.",
     "loc.natal": "Natal, Brazil", "loc.aubr": "Australia + Brazil", "loc.mel": "Melbourne, Australia",
-    "d.eyebrow": "Design", "d.title": "Brand, social & editorial", "d.lede": "Work for clients in health, education, fashion and services, now part of the Crossover Creative portfolio.",
+    "d.eyebrow": "Design", "d.title": "Brand, social & editorial", "d.lede": "Identity, social media and editorial work for clients in health, education, fashion and services.",
     "d.all": "All", "d.brand": "Brand identity", "d.social": "Social media", "d.editorial": "Editorial",
     "d.pieces": "pieces", "d.piece": "piece", "d.view": "View",
     "v.eyebrow": "Video", "v.title": "Video editing", "v.lede": "Editing for health and business brands.",
@@ -115,7 +115,7 @@ window.I18N = {
     "x.ls.r": "Coordenador de Projetos de Software", "x.ls.d": "Projetos B2B e B2G de saúde digital. Painéis de Power BI para gestão pública, hoje usados em 12+ estados.",
     "x.cdl.r": "Consultor de Projetos e Processos", "x.cdl.d": "Mapeamento de processos e planejamento de projetos para 25+ empresas associadas à Câmara de Dirigentes Lojistas.",
     "loc.natal": "Natal, Brasil", "loc.aubr": "Austrália + Brasil", "loc.mel": "Melbourne, Austrália",
-    "d.eyebrow": "Design", "d.title": "Marca, social e editorial", "d.lede": "Trabalhos para clientes de saúde, educação, moda e serviços, hoje parte do portfólio da Crossover Creative.",
+    "d.eyebrow": "Design", "d.title": "Marca, social e editorial", "d.lede": "Identidade visual, social media e editorial para clientes de saúde, educação, moda e serviços.",
     "d.all": "Todos", "d.brand": "Identidade visual", "d.social": "Social media", "d.editorial": "Editorial",
     "d.pieces": "peças", "d.piece": "peça", "d.view": "Ver",
     "v.eyebrow": "Vídeo", "v.title": "Edição de vídeo", "v.lede": "Edição para marcas de saúde e de negócios.",
@@ -235,12 +235,7 @@ window.STORIES = [
    role:{en:"CEO · Consulting engineer",pt:"CEO · Engenheiro consultor"},
    t:{en:"From the street to public tenders",pt:"Da rua às licitações públicas"},
    s:{en:"Leading a Natal services company with its own truck and field team as it structures itself to compete for public contracts.",pt:"À frente de uma empresa de serviços de Natal, com caminhão e equipe próprios, que se estrutura para disputar contratos públicos."},
-   k:"CREA", kl:{en:"registered engineer",pt:"engenheiro registrado"}},
-  {id:"crossover", org:"Crossover Creative", kind:"p", vis:"collage", when:{en:"Now",pt:"Atual"}, where:{en:"Australia + Brazil",pt:"Austrália + Brasil"},
-   role:{en:"Co-founder",pt:"Cofundador"},
-   t:{en:"Brands that cross over",pt:"Marcas que atravessam"},
-   s:{en:"A creative agency founded by three Brazilian immigrants, building identity, content and reach for small businesses on two continents.",pt:"Uma agência criativa fundada por três imigrantes brasileiros, que cria identidade, conteúdo e alcance para pequenos negócios em dois continentes."},
-   k:"14", kl:{en:"projects in the portfolio",pt:"projetos no portfólio"}, link:"#design"}
+   k:"CREA", kl:{en:"registered engineer",pt:"engenheiro registrado"}}
 ];
 
 /* Career map. Dates as decimal years (2023.17 = Mar 2023). */
@@ -253,8 +248,7 @@ window.TIMELINE = {
     {org:"CONTHABIL", kind:"p", a:2023.25, b:2024.42, story:"conthabil", c:"BR"},
     {org:"Origani", kind:"o", a:2024.92, b:2025.42, story:"origani", c:"AU"},
     {org:"SNL", kind:"o", a:2025.42, b:2026.25, story:"snl", c:"AU"},
-    {org:"LK Serviços", kind:"c", a:2026.58, b:null, story:"lk", c:"BR"},
-    {org:"Crossover", kind:"p", a:2026.58, b:null, story:"crossover", c:"AU · BR"}
+    {org:"LK Serviços", kind:"c", a:2026.58, b:null, story:"lk", c:"BR"}
   ],
   study:[
     {at:2020.9, t:{en:"B.Sc. Industrial Engineering · UnP",pt:"Eng. de Produção · UnP"}, p:"eng"},
@@ -286,3 +280,21 @@ Object.assign(window.I18N.en,{"fc.st":"Empty consulting rooms, booked by the hou
 Object.assign(window.I18N.pt,{"fc.st":"Consultórios vazios, alugados por hora","fc.ss":"Como construímos um marketplace de saúde do primeiro wireframe ao palco do Web Summit Lisboa."});
 Object.assign(window.I18N.en,{"fc.screens":"Screens from the Figma file","fc.r1":"Search by place and date","fc.r2":"Room page, scrolling","fc.r3":"Price always one tap away","fc.r4":"Booking confirmation email","fc.r5":"Full-screen room gallery"});
 Object.assign(window.I18N.pt,{"fc.screens":"Telas do arquivo no Figma","fc.r1":"Busca por local e data","fc.r2":"Página da sala, rolando","fc.r3":"Preço sempre a um toque","fc.r4":"E-mail de confirmação da reserva","fc.r5":"Galeria da sala em tela cheia"});
+
+/* Design cards: storytelling title + subtitle per client */
+window.CASE_COPY = {
+  "armiel":{t:{en:"Accessibility you can see",pt:"Acessibilidade que se vê"},s:{en:"A brand identity for an inclusion and accessibility services company, from symbol to stationery.",pt:"Identidade visual para uma empresa de acessibilidade e inclusão, do símbolo à papelaria."}},
+  "noiva-dosal":{t:{en:"Beachwear with a soft touch",pt:"Beachwear com toque delicado"},s:{en:"Identity for a fitness and beachwear label: script logotype, shell symbol and packaging.",pt:"Identidade para uma marca de moda fitness e beachwear: logotipo cursivo, símbolo de concha e embalagens."}},
+  "cp-idiomas":{t:{en:"Languages, made personal",pt:"Idiomas sob medida"},s:{en:"Identity and social media for a language school built around personalised classes.",pt:"Identidade e social media para uma escola de idiomas focada em aulas personalizadas."}},
+  "paulino-diagnosticos":{t:{en:"A clear brand for diagnostics",pt:"Uma marca clara para diagnósticos"},s:{en:"Identity and applications for a diagnostics clinic: folders, lanyards and staff badges.",pt:"Identidade e aplicações para uma clínica de diagnósticos: pastas, cordões e crachás."}},
+  "fusion-clinic-social":{t:{en:"Consulting rooms, on your feed",pt:"Consultórios no seu feed"},s:{en:"Launch social media for Fusion Clinic, talking to health professionals who need a place to see patients.",pt:"Social media de lançamento da Fusion Clinic, falando com profissionais de saúde que precisam de um lugar para atender."}},
+  "instituto-mais-mulher":{t:{en:"A stronger voice for women",pt:"Uma voz mais forte para as mulheres"},s:{en:"Identity and volunteer campaign for a non-profit dedicated to women.",pt:"Identidade e campanha de voluntariado para uma organização sem fins lucrativos dedicada às mulheres."}},
+  "sel-vendas-decore":{t:{en:"Décor that feels like home",pt:"Decoração com cara de casa"},s:{en:"Social media for a home décor retailer, celebrating interior designers and the spaces they create.",pt:"Social media para uma loja de decoração, celebrando designers de interiores e os espaços que criam."}},
+  "pro-solucoes":{t:{en:"A junior firm that looks the part",pt:"Uma empresa júnior com cara de grande"},s:{en:"Identity applications for a junior consulting firm: cups, buttons and lanyards.",pt:"Aplicações de identidade para uma empresa júnior de consultoria: copos, bottons e cordões."}},
+  "abrn":{t:{en:"Science with a human face",pt:"Ciência com rosto humano"},s:{en:"Social media for Rio Grande do Norte's biomedical association: campaigns and course launches.",pt:"Social media da Associação de Biomédicos do RN: campanhas e lançamento de cursos."}},
+  "universidade-potiguar":{t:{en:"A handbook for new entrepreneurs",pt:"Um guia para novos empreendedores"},s:{en:"Editorial design for a university entrepreneurship handbook.",pt:"Design editorial de um handbook de empreendedorismo universitário."}},
+  "lopes-e-gomes":{t:{en:"Auditing, with clarity",pt:"Auditoria com clareza"},s:{en:"Identity and institutional material for a healthcare auditing firm.",pt:"Identidade e material institucional para uma empresa de auditoria em saúde."}},
+  "laboratorio-vida-e-saude":{t:{en:"A lab people trust",pt:"Um laboratório de confiança"},s:{en:"Social media for a clinical laboratory.",pt:"Social media para um laboratório clínico."}}
+};
+Object.assign(window.I18N.en,{"fc.cap1a":"Desktop","fc.cap1b":"Room page and weekly calendar","fc.cap2a":"Mobile","fc.cap2b":"Rooms from R$ 30/h"});
+Object.assign(window.I18N.pt,{"fc.cap1a":"Desktop","fc.cap1b":"Página da sala e agenda semanal","fc.cap2a":"Mobile","fc.cap2b":"Salas a partir de R$ 30/h"});
