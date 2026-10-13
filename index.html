@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{var t=localStorage.getItem("lg-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Luiz Gomes Portfólio</title>
+<meta name="description" content="Luiz Gomes — Gerente de Projetos, Produto e Operações. Cofundador e CTO da Fusion Clinic, 9+ anos entre Brasil, Argentina, Austrália e Espanha.">
+<meta name="theme-color" content="#EDEFF1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111316" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luiz Gomes · Projetos, Produto e Operações">
+<meta property="og:description" content="Portfólio com produtos, projetos, design e vídeo.">
+<meta property="og:image" content="/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: editorial one-pager — oversized expanded name beside a B&W studio portrait,
+   then case files laid out like project charters (Papel / Período / Escopo / Resultado). */
+:root{
+  --bg:#EDEFF1;          /* cool paper, matches the grey studio backdrop */
+  --surface:#F8F9FA;
+  --ink:#121417;
+  --muted:#5B6169;
+  --line:#CDD2D8;
+  --accent:#2E47E6;      /* cobalt — "signed off" blue */
+  --accent-ink:#FFFFFF;
+  --hi:#E9ECFF;
+  --shadow:0 1px 0 rgba(18,20,23,.04), 0 10px 30px -18px rgba(18,20,23,.35);
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --wrap:1180px;
+  --gut:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111316;--surface:#191C20;--ink:#ECEEF1;--muted:#9AA1AB;--line:#2C3138;
+  --accent:#8B9BFF;--accent-ink:#0D0F14;--hi:#1E2340;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 30px -18px rgba(0,0,0,.8);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111316;--surface:#191C20;--ink:#ECEEF1;--muted:#9AA1AB;--line:#2C3138;
+  --accent:#8B9BFF;--accent-ink:#0D0F14;--hi:#1E2340;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 30px -18px rgba(0,0,0,.8);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;font-stretch:112%;letter-spacing:-.02em}
+h3{font-size:1.35rem;font-weight:700;font-stretch:105%;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:60ch;font-size:1.05rem}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{font-family:var(--display);font-weight:800;font-stretch:118%;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.l{display:block;padding:6px 10px;border-radius:999px;text-decoration:none;font-size:.9rem;color:var(--muted);white-space:nowrap}
+.nav a.l:hover{color:var(--ink);background:var(--surface)}
+.theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:36px;height:36px;border-radius:50%;cursor:pointer;flex:none;display:grid;place-items:center}
+@media (max-width:760px){.nav ul{display:none}.nav .theme{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,90px) clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(24px,5vw,64px);align-items:end}
+.name{font-size:clamp(3.4rem,11.5vw,9.4rem);font-weight:900;font-stretch:125%;letter-spacing:-.045em;line-height:.86;text-transform:uppercase}
+.name .g{display:block;color:transparent;-webkit-text-stroke:2px var(--ink)}
+.role{margin-top:28px;font-family:var(--display);font-stretch:100%;font-weight:600;font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:1.25;max-width:24ch}
+.role b{color:var(--accent);font-weight:700}
+.pitch{margin-top:16px;color:var(--muted);max-width:52ch}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.btn.p:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.s:hover{background:var(--surface)}
+.portrait{position:relative;margin:0}
+.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:4px;filter:grayscale(1) contrast(1.04)}
+.portrait figcaption{position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:.72rem;color:#fff;letter-spacing:.06em;text-transform:uppercase}
+.portrait figcaption span{background:rgba(10,12,15,.6);padding:5px 8px;border-radius:3px;backdrop-filter:blur(4px)}
+.stamp{position:absolute;top:-18px;left:-18px;width:112px;height:112px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-stretch:115%;line-height:1;font-size:2.2rem;transform:rotate(-8deg);box-shadow:var(--shadow)}
+.stamp small{display:block;font-family:var(--mono);font-size:.58rem;font-weight:500;letter-spacing:.08em;margin-top:4px;text-transform:uppercase}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:440px}.stamp{left:auto;right:-6px;top:-14px;width:96px;height:96px;font-size:1.9rem}}
+
+/* route strip */
+.route{border-block:1px solid var(--line);background:var(--surface)}
+.route .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stop{padding:20px 18px;border-left:1px solid var(--line);min-width:0}
+.stop:first-child{border-left:0;padding-left:0}
+.stop .code{font-family:var(--display);font-weight:800;font-stretch:120%;font-size:1.7rem;letter-spacing:-.01em}
+.stop .where{font-size:.88rem;color:var(--muted)}
+.stop .what{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-top:6px;letter-spacing:.04em}
+@media (max-width:760px){.route .wrap{grid-template-columns:1fr 1fr}.stop{border-left:0;padding-left:0;border-top:1px solid var(--line)}.stop:nth-child(-n+2){border-top:0}.stop:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}}
+
+section.block{padding-block:clamp(64px,9vw,120px)}
+.head{display:grid;grid-template-columns:auto 1fr;gap:12px 40px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.head .eyebrow{grid-column:1/-1}
+.head .lede{justify-self:end;text-align:right}
+@media (max-width:760px){.head{grid-template-columns:1fr}.head .lede{justify-self:start;text-align:left}}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
+.about .big{font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.22;font-weight:600;font-stretch:100%;letter-spacing:-.01em}
+.about .big em{font-style:normal;color:var(--accent)}
+.pillars{display:grid;gap:0;border-top:1px solid var(--ink)}
+.pillar{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.pillar .ic{grid-row:span 2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--accent)}
+.pillar h3{font-size:1.08rem}
+.pillar p{color:var(--muted);font-size:.93rem}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* product case */
+.product{background:var(--surface);border-block:1px solid var(--line)}
+.case-top{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:start}
+.case-top .logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.case-top .logo i{width:10px;height:10px;border-radius:50%;background:#F26B21}
+.case-top h3{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;font-stretch:118%;letter-spacing:-.03em;margin-top:10px}
+.case-top .tag{font-size:1.15rem;margin-top:12px;max-width:40ch}
+.charter{border:1px solid var(--line);border-radius:6px;background:var(--bg);font-size:.92rem}
+.charter dl{margin:0}
+.charter .row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px 16px;border-top:1px solid var(--line)}
+.charter .row:first-child{border-top:0}
+.charter dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.charter dd{margin:0;min-width:0}
+.charter .hd{padding:10px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;color:var(--muted)}
+@media (max-width:860px){.case-top{grid-template-columns:1fr}}
+@media (max-width:440px){.charter .row{grid-template-columns:1fr;gap:2px}}
+
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,36px);margin-top:clamp(40px,6vw,64px)}
+.story > div{border-top:2px solid var(--ink);padding-top:14px;min-width:0}
+.story h4{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px;color:var(--accent)}
+.story p{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.story{grid-template-columns:1fr}}
+
+.screens{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.shot{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;min-width:0}
+.shot .chrome{display:flex;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.shot .chrome i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.shot .chrome span{margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot .pic{flex:1;display:grid;place-items:center;background:#fff;padding:0}
+.shot img{display:block;width:100%;height:100%;object-fit:contain}
+.shot figcaption{padding:10px 12px;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+.shot figcaption b{color:var(--ink);font-weight:600}
+.s1{grid-column:span 8}.s2{grid-column:span 4}.s3{grid-column:span 6}.s4{grid-column:span 6}
+.s2 .pic{padding:16px;background:#e9ebee}
+.s2 img{max-height:460px;width:auto;border-radius:18px;box-shadow:0 12px 30px -12px rgba(0,0,0,.4)}
+@media (max-width:760px){.s1,.s2,.s3,.s4{grid-column:1/-1}}
+
+.features{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.75rem;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink)}
+
+.more-products{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(48px,7vw,80px)}
+.mp{border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mp .eyebrow{color:var(--accent)}
+.mp p{color:var(--muted);font-size:.95rem}
+.mp .res{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-family:var(--mono);font-size:.8rem;color:var(--ink)}
+@media (max-width:760px){.more-products{grid-template-columns:1fr}}
+
+/* projects list */
+.proj{border-top:1px solid var(--ink)}
+.p-item{display:grid;grid-template-columns:150px 1.1fr 1.4fr;gap:clamp(12px,3vw,40px);padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.p-item:hover{background:linear-gradient(90deg,transparent,var(--hi) 30%,transparent)}
+.p-when{font-family:var(--mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.p-when b{display:block;color:var(--ink);font-weight:500}
+.p-org h3{font-size:1.45rem}
+.p-org .r{color:var(--accent);font-weight:600;font-size:.95rem;margin-top:4px}
+.p-org .loc{font-size:.85rem;color:var(--muted)}
+.p-body{min-width:0}
+.p-body p{color:var(--muted);font-size:.95rem}
+.p-body ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.p-body li{font-size:.92rem;padding-left:18px;position:relative}
+.p-body li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--accent)}
+.kpi{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.78rem;background:var(--hi);color:var(--ink);padding:4px 8px;border-radius:3px}
+@media (max-width:860px){.p-item{grid-template-columns:1fr;gap:8px}}
+
+/* design gallery */
+.design{background:var(--ink);color:var(--bg)}
+.design .eyebrow,.design .lede{color:color-mix(in srgb,var(--bg) 62%,var(--ink))}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font:inherit;font-size:.88rem;padding:8px 14px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bg) 30%,var(--ink));background:transparent;color:var(--bg);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{all:unset;box-sizing:border-box;cursor:zoom-in;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .im{aspect-ratio:1/1;overflow:hidden;border-radius:4px;background:color-mix(in srgb,var(--bg) 10%,var(--ink))}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.card:hover img{transform:scale(1.04)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.card .meta{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card .meta b{font-weight:600;font-size:.98rem}
+.card .meta span{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--bg) 60%,var(--ink));white-space:nowrap}
+.card .n{font-family:var(--mono);font-size:.7rem;color:color-mix(in srgb,var(--bg) 55%,var(--ink))}
+@media (max-width:860px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.grid{grid-template-columns:1fr}}
+
+/* video */
+.vids{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vid{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);min-width:0}
+.vid .frame{aspect-ratio:16/9;background:
+  repeating-linear-gradient(90deg,transparent 0 46px,color-mix(in srgb,var(--ink) 8%,transparent) 46px 48px),
+  linear-gradient(135deg,var(--hi),var(--surface));position:relative;display:grid;place-items:center}
+.vid .play{width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center}
+.vid .tc{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vid .rec{position:absolute;right:12px;top:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:6px}
+.vid .rec i{width:7px;height:7px;border-radius:50%;background:#E5484D}
+.vid .txt{padding:20px;display:grid;gap:8px}
+.vid .txt p{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.vids{grid-template-columns:1fr}}
+
+/* credentials */
+.cred{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,5vw,64px)}
+.edu{border-top:1px solid var(--ink)}
+.edu .e{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.edu .y{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.edu .e b{font-weight:600;display:block}
+.edu .e span{font-size:.88rem;color:var(--muted)}
+.side{display:grid;gap:28px;align-content:start}
+.side h3{font-size:1rem;font-family:var(--mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.lang{display:grid;gap:10px}
+.lang .r{display:grid;grid-template-columns:92px 1fr 104px;gap:12px;align-items:center;font-size:.92rem}
+.lang .bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden}
+.lang .bar i{display:block;height:100%;background:var(--accent)}
+.lang .lv{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:860px){.cred{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding-block:clamp(72px,10vw,130px)}
+.contact h2{font-size:clamp(2.6rem,8vw,6.4rem);font-weight:900;font-stretch:122%;letter-spacing:-.04em;line-height:.9}
+.contact h2 span{color:var(--accent)}
+.c-rows{margin-top:40px;border-top:1px solid var(--ink)}
+.c-row{display:grid;grid-template-columns:140px 1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.c-row .k{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.c-row .v{font-size:clamp(1rem,2.4vw,1.35rem);font-weight:500;overflow-wrap:anywhere;user-select:all;min-width:0}
+.c-row a.v{text-decoration:none}
+.c-row a.v:hover{color:var(--accent)}
+.copy{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer}
+@media (max-width:560px){.c-row{grid-template-columns:1fr auto}.c-row .k{grid-column:1/-1}}
+footer{border-top:1px solid var(--line);padding-block:24px;font-size:.82rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);width:100%;color:#fff}
+dialog.lb::backdrop{background:rgba(8,9,11,.9)}
+.lb-in{display:grid;gap:12px}
+.lb-img{display:grid;place-items:center;max-height:78vh}
+.lb-img img{max-height:78vh;width:auto;max-width:100%;border-radius:4px;background:#fff}
+.lb-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lb-bar .t{flex:1;min-width:0}
+.lb-bar .t b{display:block;font-family:var(--display);font-weight:700;font-stretch:110%;font-size:1.2rem}
+.lb-bar .t span{font-family:var(--mono);font-size:.75rem;color:#B9BEC6;letter-spacing:.06em;text-transform:uppercase}
+.lb-bar button{font:inherit;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:8px 14px;cursor:pointer}
+.lb-bar button:hover{background:rgba(255,255,255,.18)}
+.lb-count{font-family:var(--mono);font-size:.8rem;color:#B9BEC6;font-variant-numeric:tabular-nums}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<a class="sr" href="#sobre" style="position:absolute;left:-9999px">Pular para o conteúdo</a>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#top">Luiz Gomes<span>.</span></a>
+    <ul>
+      <li><a class="l" href="#sobre">Sobre</a></li>
+      <li><a class="l" href="#produtos">Produtos</a></li>
+      <li><a class="l" href="#projetos">Projetos</a></li>
+      <li><a class="l" href="#design">Design</a></li>
+      <li><a class="l" href="#video">Vídeo</a></li>
+      <li><a class="l" href="#formacao">Formação</a></li>
+      <li><a class="l" href="#contato">Contato</a></li>
+    </ul>
+    <button class="theme" id="themeBtn" type="button" aria-label="Alternar tema claro e escuro">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Portfólio · 2026</p>
+      <h1 class="name" style="margin-top:14px">Luiz<span class="g">Gomes</span></h1>
+      <p class="role">Gerente de <b>Projetos</b>, <b>Produto</b> e <b>Operações</b></p>
+      <p class="pitch">Engenheiro de Produção com 9+ anos entre Brasil, Argentina, Austrália e Espanha. Cofundei e liderei a tecnologia de um marketplace de saúde, coordenei software para o setor público e tirei operações do papel em três continentes. Trago para cada projeto método, dados e um olho treinado para design.</p>
+      <div class="ctas">
+        <a class="btn p" href="#produtos">Ver projetos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn s" href="https://linkedin.com/in/engluizgomes" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="assets/img/luiz.jpg" alt="Retrato de Luiz Gomes em estúdio, camiseta preta, sentado com os braços apoiados nos joelhos.">
+      <div class="stamp" aria-label="9 ou mais anos de experiência">9+<small>anos</small></div>
+      <figcaption><span>Natal · RN · Brasil</span><span>PT · ES · EN · FR</span></figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="route" aria-label="Países onde trabalhou">
+  <div class="wrap">
+    <div class="stop"><div class="code">BRA</div><div class="where">Natal, Brasil</div><div class="what">Healthtech · SaaS · B2G</div></div>
+    <div class="stop"><div class="code">ARG</div><div class="where">Mar del Plata, La Plata</div><div class="what">Medicina · Eng. de Software</div></div>
+    <div class="stop"><div class="code">AUS</div><div class="where">Melbourne, Austrália</div><div class="what">Operações · Supply chain</div></div>
+    <div class="stop"><div class="code">ESP</div><div class="where">Barcelona, Espanha</div><div class="what">Experiência internacional</div></div>
+  </div>
+</div>
+
+<main>
+<section class="block" id="sobre">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Sobre</p><h2>Método de engenheiro, cabeça de produto.</h2></div>
+    <div class="about">
+      <p class="big">Comecei como gerente de projetos numa startup de saúde e terminei como <em>CTO</em>. No caminho aprendi a traduzir problemas de negócio em produto, a liderar times de desenvolvimento terceirizados e a medir o que entrega. Hoje uno três formações em uma só prática.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span>
+          <h3>Engenharia de Produção</h3>
+          <p>Processos, operações e cadeia de suprimentos. MBA em Gestão de Projetos (USP) e MBA em Marketing.</p>
+        </div>
+        <div class="pillar">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <h3>Engenharia de Software</h3>
+          <p>Especialização e Mestrado na UNLP (Argentina). Arquitetura, requisitos e gestão de produto digital.</p>
+        </div>
+        <div class="pillar">
+          <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></span>
+          <h3>Saúde</h3>
+          <p>Pós em Gestão em Saúde e dois anos de Medicina na UNMDP. Healthtech é onde essas linhas se cruzam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block product" id="produtos">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Produtos</p><h2>Produto em destaque</h2><p class="lede">Da ideia ao palco do Web Summit: o marketplace que conecta profissionais de saúde a consultórios disponíveis.</p></div>
+
+    <div class="case-top">
+      <div>
+        <span class="logo"><i></i>Healthtech · Marketplace</span>
+        <h3>Fusion Clinic</h3>
+        <p class="tag">Um “Airbnb” de consultórios. Profissionais de saúde alugam salas por hora, perto dos seus pacientes, sem o custo fixo de manter uma clínica.</p>
+      </div>
+      <div class="charter" role="group" aria-label="Ficha do projeto">
+        <div class="hd"><span>Termo de abertura</span><span>FC-2023</span></div>
+        <dl>
+          <div class="row"><dt>Papel</dt><dd>Cofundador e CTO. Entrei como gerente de projetos, assumi o projeto de tecnologia e passei a liderar a área.</dd></div>
+          <div class="row"><dt>Período</dt><dd>Mar 2023 – Dez 2024 · Natal, RN</dd></div>
+          <div class="row"><dt>Time</dt><dd>Squad de desenvolvimento terceirizado, sob minha gestão de produto e entrega</dd></div>
+          <div class="row"><dt>Marco</dt><dd>Primeira startup do Rio Grande do Norte a se apresentar no palco do Web Summit Lisboa (2023)</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="story">
+      <div><h4>Problema</h4><p>Profissionais de saúde em início de carreira precisam atender, mas um consultório próprio exige aluguel, mobília e recepção fixos. Do outro lado, clínicas têm salas paradas em vários horários da semana.</p></div>
+      <div><h4>Solução</h4><p>Um marketplace com busca por bairro, página de cada sala com fotos e estrutura, agenda por hora e reserva online. A clínica monetiza o horário ocioso; o profissional paga só pelo tempo que usa.</p></div>
+      <div><h4>Meu trabalho</h4><p>Descoberta e priorização do backlog, desenho dos fluxos de busca e reserva, gestão do time de desenvolvimento, redesign de UX/UI e lançamento. Também criei a comunicação da marca nas redes.</p></div>
+    </div>
+
+    <div class="screens" id="fusionScreens">
+      <figure class="shot s1" data-lb="fusion" data-i="0">
+        <div class="chrome"><i></i><i></i><i></i><span>fusionclinic · reservas</span></div>
+        <div class="pic"><img src="assets/work/fusion-clinic-uxui-01.jpg" alt="Wireframe anotado da tela de reservas da Fusion Clinic" loading="lazy"></div>
+        <figcaption><b>Tela de reservas</b> · fluxo anotado para o time de desenvolvimento</figcaption>
+      </figure>
+      <figure class="shot s2" data-lb="fusion" data-i="1">
+        <div class="chrome"><i></i><i></i><i></i><span>mobile · sala</span></div>
+        <div class="pic"><img src="assets/work/fusion-clinic-uxui-02.jpg" alt="Tela mobile da Sala Fusion 04 em Natal, a partir de R$ 30 por hora, com botão Reservar" loading="lazy"></div>
+        <figcaption><b>Mobile</b> · página da sala com preço por hora</figcaption>
+      </figure>
+      <figure class="shot s3" data-lb="fusion" data-i="2">
+        <div class="chrome"><i></i><i></i><i></i><span>desktop · consultório</span></div>
+        <div class="pic"><img src="assets/work/fusion-clinic-uxui-03.jpg" alt="Página desktop de um consultório com galeria de fotos" loading="lazy"></div>
+        <figcaption><b>Desktop</b> · galeria e detalhes do consultório</figcaption>
+      </figure>
+      <figure class="shot s4" data-lb="fusion" data-i="3">
+        <div class="chrome"><i></i><i></i><i></i><span>desktop · agenda</span></div>
+        <div class="pic"><img src="assets/work/fusion-clinic-uxui-04.jpg" alt="Agenda semanal de horários disponíveis com resumo da reserva" loading="lazy"></div>
+        <figcaption><b>Desktop</b> · agenda semanal e resumo do pedido</figcaption>
+      </figure>
+    </div>
+
+    <div class="features" aria-label="Funcionalidades">
+      <span class="chip">Busca por localização</span><span class="chip">Galeria da sala</span><span class="chip">Comodidades</span><span class="chip">Agenda por hora</span><span class="chip">Resumo e pagamento</span><span class="chip">Atendimento via WhatsApp</span><span class="chip">Versões desktop e mobile</span>
+    </div>
+
+    <div class="more-products">
+      <article class="mp">
+        <p class="eyebrow">SaaS · IA · Contabilidade</p>
+        <h3>CONTHABIL</h3>
+        <p>Gerente de Projetos de Marketing de um SaaS contábil com inteligência artificial. Liderei o programa de transformação digital entre os canais de produto e marketing, com automação de fluxos e gestão da mudança. Cuidei também do marketing de conteúdo e das estratégias de tráfego.</p>
+        <p class="res">−25% de retrabalho manual · Abr 2023 – Jun 2024</p>
+      </article>
+      <article class="mp">
+        <p class="eyebrow">Saúde digital · B2B / B2G</p>
+        <h3>Life Sprint</h3>
+        <p>Coordenei projetos de software de bem-estar e saúde digital para empresas e órgãos públicos. Os painéis de Power BI que estruturamos viraram modelo e hoje são replicados em outros estados.</p>
+        <p class="res">Dashboards em 12+ estados · Jan 2022 – Fev 2023</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projetos">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Projetos</p><h2>Trajetória</h2><p class="lede">Operações, consultoria e gestão de projetos, do RN a Melbourne.</p></div>
+    <div class="proj">
+      <article class="p-item">
+        <p class="p-when"><b>2026 →</b>Atual</p>
+        <div class="p-org"><h3>LK Serviços</h3><p class="r">CEO · Engenheiro consultor</p><p class="loc">Natal, Brasil</p></div>
+        <div class="p-body"><p>Empresa de serviços com caminhão próprio e equipe operacional. Atuo na gestão, na consultoria de engenharia e no desenvolvimento de negócios.</p>
+          <ul><li>Estruturação para disputar licitações públicas</li><li>Plano de expansão para terceirização e limpeza</li><li>Engenheiro de Produção com registro no CREA</li></ul></div>
+      </article>
+      <article class="p-item">
+        <p class="p-when"><b>2026 →</b>Atual</p>
+        <div class="p-org"><h3>Crossover Creative</h3><p class="r">Cofundador</p><p class="loc">Austrália + Brasil</p></div>
+        <div class="p-body"><p>Agência criativa fundada por três brasileiros imigrantes. Branding, social media, anúncios, SEO e sites para pequenos negócios.</p>
+          <ul><li>Portfólio de 14 projetos de identidade, social e UX/UI</li><li>Site bilíngue com calculadora de orçamento</li></ul></div>
+      </article>
+      <article class="p-item">
+        <p class="p-when"><b>Jun 2025</b>Abr 2026</p>
+        <div class="p-org"><h3>SNL Commercial Services</h3><p class="r">Supervisor / Gerente de Operações</p><p class="loc">Melbourne, Austrália</p></div>
+        <div class="p-body"><p>Gestão de operações de serviços em mais de 12 sites comerciais, com equipe grande e distribuída.</p>
+          <ul><li>Escalas, padrões de qualidade e rotina dos sites</li><li>Interface direta com clientes e gestores de cada local</li></ul>
+          <span class="kpi">12+ sites comerciais</span></div>
+      </article>
+      <article class="p-item">
+        <p class="p-when"><b>Dez 2024</b>Jun 2025</p>
+        <div class="p-org"><h3>Origani</h3><p class="r">Gerente de Produção e Operações</p><p class="loc">Melbourne, Austrália</p></div>
+        <div class="p-body"><p>Cosméticos de luxo. Cadeia de suprimentos entre Austrália, Ásia e Europa.</p>
+          <ul><li>Negociação de produtos e insumos para a produção</li><li>Compra e venda de produtos acabados e mercadorias</li><li>Implantação interna do ERP Dynamics 365</li></ul>
+          <span class="kpi">3 continentes na cadeia</span></div>
+      </article>
+      <article class="p-item">
+        <p class="p-when"><b>Jan 2022</b>Fev 2023</p>
+        <div class="p-org"><h3>Life Sprint</h3><p class="r">Coordenador de Projetos de Software</p><p class="loc">Natal, Brasil</p></div>
+        <div class="p-body"><p>Projetos B2B e B2G de bem-estar e saúde digital, com foco em indicadores e gestão por resultados.</p>
+          <ul><li>Painéis de Power BI para gestão pública</li><li>Coordenação entre cliente, produto e desenvolvimento</li></ul>
+          <span class="kpi">Replicado em 12+ estados</span></div>
+      </article>
+      <article class="p-item">
+        <p class="p-when"><b>Dez 2019</b>Jan 2021</p>
+        <div class="p-org"><h3>CDL Natal</h3><p class="r">Consultor de Projetos e Processos</p><p class="loc">Natal, Brasil</p></div>
+        <div class="p-body"><p>Consultoria de processos e projetos para empresas associadas à Câmara de Dirigentes Lojistas.</p>
+          <ul><li>Mapeamento e melhoria de processos</li><li>Planejamento de projetos para associados</li></ul>
+          <span class="kpi">25+ organizações atendidas</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block design" id="design">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Design</p><h2>Identidade, social e UX/UI</h2><p class="lede">Trabalhos feitos para clientes de saúde, educação, moda e serviços, hoje parte do portfólio da Crossover Creative.</p></div>
+    <div class="filters" role="group" aria-label="Filtrar trabalhos">
+      <button type="button" data-f="all" aria-pressed="true">Todos</button>
+      <button type="button" data-f="brand" aria-pressed="false">Identidade visual</button>
+      <button type="button" data-f="social" aria-pressed="false">Social media</button>
+      <button type="button" data-f="ux" aria-pressed="false">UX/UI</button>
+      <button type="button" data-f="editorial" aria-pressed="false">Editorial</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="block" id="video">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Edição de vídeo</p><h2>Vídeo</h2><p class="lede">Edição de vídeo para marcas de saúde e de negócios.</p></div>
+    <div class="vids">
+      <article class="vid">
+        <div class="frame"><span class="rec"><i></i>EDIT</span><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tc">00:00:00:00</span></div>
+        <div class="txt"><p class="eyebrow">Saúde digital</p><h3>TME Telemedicina</h3><p>Edição de vídeos para a comunicação de uma empresa de telemedicina.</p></div>
+      </article>
+      <article class="vid">
+        <div class="frame"><span class="rec"><i></i>EDIT</span><span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tc">00:00:00:00</span></div>
+        <div class="txt"><p class="eyebrow">Gestão empresarial</p><h3>Gestão Negócios</h3><p>Edição de vídeos para a comunicação de uma empresa de gestão de negócios.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block product" id="formacao">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow">Formação</p><h2>Formação e ferramentas</h2></div>
+    <div class="cred">
+      <div class="edu">
+        <div class="e"><span class="y">2027</span><div><b>Especialização e Mestrado em Engenharia de Software</b><span>Universidad Nacional de La Plata (UNLP), Argentina · disciplinas concluídas, trabalho final em andamento</span></div></div>
+        <div class="e"><span class="y">2025</span><div><b>Diploma of Project Management</b><span>Greystone College, Austrália</span></div></div>
+        <div class="e"><span class="y">2023</span><div><b>MBA em Gestão de Projetos</b><span>Universidade de São Paulo (USP)</span></div></div>
+        <div class="e"><span class="y">2022</span><div><b>Pós-graduação em Gestão em Saúde</b><span>UniAmérica</span></div></div>
+        <div class="e"><span class="y">2022</span><div><b>Medicina (2 anos cursados)</b><span>Universidad Nacional de Mar del Plata (UNMDP), Argentina</span></div></div>
+        <div class="e"><span class="y">2021</span><div><b>MBA em Marketing</b><span>UniAmérica</span></div></div>
+        <div class="e"><span class="y">2020</span><div><b>Bacharelado em Engenharia de Produção</b><span>Universidade Potiguar (UnP)</span></div></div>
+        <div class="e"><span class="y">2020</span><div><b>Técnico em Informática para Internet</b><span>IFRN</span></div></div>
+      </div>
+      <div class="side">
+        <div>
+          <h3>Idiomas</h3>
+          <div class="lang">
+            <div class="r"><span>Português</span><span class="bar"><i style="width:100%"></i></span><span class="lv">Nativo</span></div>
+            <div class="r"><span>Espanhol</span><span class="bar"><i style="width:100%"></i></span><span class="lv">Nativo</span></div>
+            <div class="r"><span>Inglês</span><span class="bar"><i style="width:88%"></i></span><span class="lv">Profissional</span></div>
+            <div class="r"><span>Francês</span><span class="bar"><i style="width:55%"></i></span><span class="lv">Intermediário</span></div>
+            <div class="r"><span>Alemão</span><span class="bar"><i style="width:20%"></i></span><span class="lv">Básico</span></div>
+          </div>
+        </div>
+        <div>
+          <h3>Ferramentas</h3>
+          <div class="tools"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Metabase</span><span class="chip">Tableau</span><span class="chip">Dynamics 365</span><span class="chip">Notion</span><span class="chip">AWS</span><span class="chip">Ferramentas de IA</span></div>
+        </div>
+        <div>
+          <h3>Comunidade</h3>
+          <p style="color:var(--muted);font-size:.95rem">Membro do PMI, com atuação como mentor no PMI Brasil e no PMI-DF.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <p class="eyebrow">Contato</p>
+    <h2 style="margin-top:14px">Vamos tirar o<br>próximo projeto<br><span>do papel.</span></h2>
+    <div class="c-rows">
+      <div class="c-row"><span class="k">E-mail</span><a class="v" id="em" href="mailto:eng.prod.luizgomes@outlook.com">eng.prod.luizgomes@outlook.com</a><button class="copy" type="button" data-copy="eng.prod.luizgomes@outlook.com">Copiar</button></div>
+      <div class="c-row"><span class="k">LinkedIn</span><a class="v" href="https://linkedin.com/in/engluizgomes" target="_blank" rel="noopener">linkedin.com/in/engluizgomes</a><button class="copy" type="button" data-copy="https://linkedin.com/in/engluizgomes">Copiar</button></div>
+      <div class="c-row"><span class="k">Telefone</span><span class="v">+55 84 99119-3154</span><button class="copy" type="button" data-copy="+5584991193154">Copiar</button></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Luiz Gomes · Natal, RN</span><span>Projetos · Produto · Operações</span></div></footer>
+
+<dialog class="lb" id="lb" aria-label="Visualizar imagem">
+  <div class="lb-in">
+    <div class="lb-img"><img id="lbImg" alt=""></div>
+    <div class="lb-bar">
+      <div class="t"><b id="lbT"></b><span id="lbS"></span></div>
+      <span class="lb-count" id="lbC"></span>
+      <button type="button" id="lbPrev" aria-label="Imagem anterior">←</button>
+      <button type="button" id="lbNext" aria-label="Próxima imagem">→</button>
+      <button type="button" id="lbX">Fechar</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const CAT={brand:"Identidade visual",social:"Social media",ux:"UX/UI",editorial:"Editorial"};
+const W=(s,n)=>Array.from({length:n},(_,i)=>`assets/work/${s}-0${i+1}.jpg`);
+const CASES=[
+ {s:"fusion-clinic-uxui",c:"Fusion Clinic",cat:["ux"],sec:"Marketplace de saúde",n:4,svc:"Redesign UX/UI"},
+ {s:"armiel",c:"Armiel",cat:["brand"],sec:"Acessibilidade e inclusão",n:4},
+ {s:"noiva-dosal",c:"Noiva D'osal",cat:["brand"],sec:"Moda fitness e beachwear",n:4},
+ {s:"cp-idiomas",c:"CP Idiomas",cat:["brand","social"],sec:"Escola de idiomas",n:4},
+ {s:"paulino-diagnosticos",c:"Paulino Diagnósticos",cat:["brand"],sec:"Diagnósticos",n:3},
+ {s:"fusion-clinic-social",c:"Fusion Clinic",cat:["social"],sec:"Marketplace de saúde",n:1},
+ {s:"instituto-mais-mulher",c:"Instituto Mais Mulher",cat:["brand"],sec:"Terceiro setor",n:2},
+ {s:"pro-solucoes",c:"PRO Soluções Consultoria Jr",cat:["brand","social"],sec:"Empresa júnior",n:3},
+ {s:"sel-vendas-decore",c:"SEL Vendas Decore",cat:["social"],sec:"Varejo de decoração",n:3},
+ {s:"abrn",c:"ABRN · Biomédicos do RN",cat:["social"],sec:"Associação profissional",n:2},
+ {s:"lopes-e-gomes",c:"Lopes e Gomes",cat:["brand","social"],sec:"Auditoria em saúde",n:2},
+ {s:"universidade-potiguar",c:"Universidade Potiguar",cat:["editorial"],sec:"Ensino superior",n:1,svc:"Handbook"},
+ {s:"laboratorio-vida-e-saude",c:"Laboratório Vida e Saúde",cat:["social"],sec:"Laboratório clínico",n:1}
+];
+const FUSION={t:"Fusion Clinic",s:"Telas do produto",imgs:W("fusion-clinic-uxui",4)};
+
+const grid=document.getElementById("grid");
+grid.innerHTML=CASES.map((k,i)=>`
+ <button class="card" type="button" data-i="${i}" data-cat="${k.cat.join(" ")}" aria-label="Abrir ${k.c}">
+  <span class="im"><img src="assets/work/${k.s}-01.jpg" alt="${k.c}: ${k.svc||k.cat.map(c=>CAT[c]).join(' e ')}" loading="lazy"></span>
+  <span class="meta"><b>${k.c}</b><span>${k.svc||k.cat.map(c=>CAT[c]).join(" · ")}</span></span>
+  <span class="n">${k.sec} · ${k.n} ${k.n>1?"peças":"peça"}</span>
+ </button>`).join("");
+
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  const f=b.dataset.f;
+  grid.querySelectorAll(".card").forEach(c=>{c.hidden=!(f==="all"||c.dataset.cat.split(" ").includes(f))});
+}));
+
+/* lightbox */
+const lb=document.getElementById("lb"),img=document.getElementById("lbImg");
+let set=null,idx=0;
+function show(){img.src=set.imgs[idx];img.alt=`${set.t}, imagem ${idx+1}`;
+  document.getElementById("lbT").textContent=set.t;document.getElementById("lbS").textContent=set.s;
+  document.getElementById("lbC").textContent=`${idx+1} / ${set.imgs.length}`;
+  const multi=set.imgs.length>1;document.getElementById("lbPrev").hidden=!multi;document.getElementById("lbNext").hidden=!multi;}
+function open(s,i){set=s;idx=i||0;show();if(!lb.open){try{lb.showModal()}catch(e){lb.setAttribute("open","")}}}
+grid.addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const k=CASES[+c.dataset.i];
+  open({t:k.c,s:`${k.sec} · ${k.svc||k.cat.map(x=>CAT[x]).join(" · ")}`,imgs:W(k.s,k.n)},0)});
+document.querySelectorAll("[data-lb=fusion]").forEach(f=>{f.tabIndex=0;f.setAttribute("role","button");
+  const go=()=>open(FUSION,+f.dataset.i);f.addEventListener("click",go);f.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})});
+const step=d=>{idx=(idx+d+set.imgs.length)%set.imgs.length;show()};
+document.getElementById("lbPrev").onclick=()=>step(-1);
+document.getElementById("lbNext").onclick=()=>step(1);
+document.getElementById("lbX").onclick=()=>lb.close();
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+lb.addEventListener("keydown",e=>{if(!set)return;if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1)});
+
+/* copy */
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+  const t=b.dataset.copy,done=()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1600)};
+  try{navigator.clipboard.writeText(t).then(done).catch(()=>sel(b))}catch(e){sel(b)}
+}));
+function sel(b){const v=b.parentElement.querySelector(".v");const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selecionado";setTimeout(()=>b.textContent="Copiar",1600)}
+
+/* theme toggle */
+const root=document.documentElement;
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("lg-theme",root.dataset.theme)}catch(e){}
+});
+try{const t=localStorage.getItem("lg-theme");if(t)root.dataset.theme=t}catch(e){}
+</script>
+
+</body>
+</html>
