@@ -158,3 +158,129 @@ window.CASES = [
   {s:"lopes-e-gomes", c:"Lopes e Gomes", cat:["brand","social"], n:2, bg:"#1979af", sec:{en:"Healthcare auditing",pt:"Auditoria em saúde"}, size:"wide"},
   {s:"laboratorio-vida-e-saude", c:"Laboratório Vida e Saúde", cat:["social"], n:1, bg:"#0cada8", sec:{en:"Clinical laboratory",pt:"Laboratório clínico"}, social:true}
 ];
+
+/* ---------- v3: storytelling, capabilities, career map ---------- */
+Object.assign(window.I18N.en,{
+  "nav.work":"Work","nav.career":"Career",
+  "st.eyebrow":"More stories","st.title":"Every role had a problem to solve",
+  "st.lede":"Each one below starts with the problem and ends with what changed.",
+  "st.read":"Read story","st.see":"See the work",
+  "cap.eyebrow":"How I work","cap.title":"One system, four disciplines",
+  "cap.lede":"The same loop runs through every project: understand people, decide with data, ship, and keep it running.",
+  "cap.p.t":"Product","cap.p.d":"Discovery, prioritisation and delivery of web and mobile products, from marketplace flows to app screens.",
+  "cap.r.t":"Research & UX","cap.r.d":"User tests, heatmaps and session recordings to see where people get stuck, then redesign around it.",
+  "cap.d.t":"Data","cap.d.d":"Dashboards and data visualisation that turn operations into decisions, from SQL to the final chart.",
+  "cap.o.t":"Delivery & Operations","cap.o.d":"Project governance, OKRs, supply chain and multi-site operations, with teams across time zones.",
+  "career.eyebrow":"Career map","career.title":"Seven years on one timeline",
+  "career.lede":"Roles as bars, qualifications as milestones. Select any item to read the story behind it.",
+  "career.work":"Work","career.study":"Education","career.now":"Today","career.expected":"expected",
+  "career.legend.p":"Product & tech","career.legend.o":"Operations","career.legend.d":"Data & public sector","career.legend.c":"Consulting & business",
+  "pill.eyebrow":"Education","pill.title":"Three disciplines, one profile",
+  "pl.eng.t":"Engineering & management","pl.eng.d":"How organisations run: processes, projects and markets.",
+  "pl.sw.t":"Software","pl.sw.d":"How products are built: requirements, architecture and the web.",
+  "pl.h.t":"Health","pl.h.d":"Who the products serve: medicine and health management.",
+  "lang.title":"Languages"
+});
+Object.assign(window.I18N.pt,{
+  "nav.work":"Projetos","nav.career":"Carreira",
+  "st.eyebrow":"Mais histórias","st.title":"Cada cargo tinha um problema para resolver",
+  "st.lede":"Cada história abaixo começa pelo problema e termina no que mudou.",
+  "st.read":"Ler história","st.see":"Ver os trabalhos",
+  "cap.eyebrow":"Como trabalho","cap.title":"Um sistema, quatro disciplinas",
+  "cap.lede":"O mesmo ciclo passa por todo projeto: entender as pessoas, decidir com dados, entregar e manter funcionando.",
+  "cap.p.t":"Produto","cap.p.d":"Descoberta, priorização e entrega de produtos web e mobile, de fluxos de marketplace a telas de app.",
+  "cap.r.t":"Pesquisa e UX","cap.r.d":"Testes com usuários, mapas de calor e gravações de sessão para ver onde as pessoas travam e redesenhar a partir disso.",
+  "cap.d.t":"Dados","cap.d.d":"Dashboards e visualização de dados que transformam operação em decisão, do SQL ao gráfico final.",
+  "cap.o.t":"Entrega e Operações","cap.o.d":"Governança de projetos, OKRs, cadeia de suprimentos e operações multi-site, com times em fusos diferentes.",
+  "career.eyebrow":"Mapa de carreira","career.title":"Sete anos em uma linha do tempo",
+  "career.lede":"Cargos como barras, formações como marcos. Selecione qualquer item para ler a história por trás.",
+  "career.work":"Trabalho","career.study":"Formação","career.now":"Hoje","career.expected":"previsto",
+  "career.legend.p":"Produto e tecnologia","career.legend.o":"Operações","career.legend.d":"Dados e setor público","career.legend.c":"Consultoria e negócios",
+  "pill.eyebrow":"Formação","pill.title":"Três disciplinas, um perfil",
+  "pl.eng.t":"Engenharia e gestão","pl.eng.d":"Como as organizações funcionam: processos, projetos e mercado.",
+  "pl.sw.t":"Software","pl.sw.d":"Como os produtos são construídos: requisitos, arquitetura e web.",
+  "pl.h.t":"Saúde","pl.h.d":"Para quem os produtos existem: medicina e gestão em saúde.",
+  "lang.title":"Idiomas"
+});
+
+/* Stories: title + subtitle carry the narrative (EN / PT).
+   kind = discipline key used for colour across the whole site: p product, o operations, d data, c consulting */
+window.STORIES = [
+  {id:"conthabil", org:"CONTHABIL", kind:"p", vis:"auto", when:"2023–2024", where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
+   role:{en:"Marketing Project Manager",pt:"Gerente de Projetos de Marketing"},
+   t:{en:"Accounting that runs itself",pt:"Contabilidade que roda sozinha"},
+   s:{en:"A digital transformation program across product and marketing that cut manual rework by 25% at an AI-powered accounting SaaS.",pt:"Um programa de transformação digital entre produto e marketing que cortou 25% do retrabalho manual num SaaS contábil com IA."},
+   k:"−25%", kl:{en:"manual rework",pt:"retrabalho manual"}},
+  {id:"lifesprint", org:"Life Sprint", kind:"d", vis:"dash", when:"2022–2023", where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
+   role:{en:"Software Project Coordinator",pt:"Coordenador de Projetos de Software"},
+   t:{en:"Public health, measured",pt:"Saúde pública, medida"},
+   s:{en:"Power BI dashboards designed for one public client became the model now replicated across more than 12 Brazilian states.",pt:"Painéis de Power BI desenhados para um cliente público viraram o modelo hoje replicado em mais de 12 estados brasileiros."},
+   k:"12+", kl:{en:"states",pt:"estados"}},
+  {id:"snl", org:"SNL Commercial Services", kind:"o", vis:"sites", when:"2025–2026", where:{en:"Melbourne, Australia",pt:"Melbourne, Austrália"},
+   role:{en:"Operations Supervisor / Manager",pt:"Supervisor / Gerente de Operações"},
+   t:{en:"Twelve sites, one standard",pt:"Doze sites, um só padrão"},
+   s:{en:"Running service operations across 12+ commercial sites in Melbourne, with a large team, tight rosters and the same quality bar everywhere.",pt:"Operações de serviços em mais de 12 sites comerciais em Melbourne, com equipe grande, escalas apertadas e o mesmo padrão de qualidade em todos."},
+   k:"12+", kl:{en:"sites",pt:"sites"}},
+  {id:"origani", org:"Origani", kind:"o", vis:"globe", when:"2024–2025", where:{en:"Melbourne, Australia",pt:"Melbourne, Austrália"},
+   role:{en:"Production & Operations Manager",pt:"Gerente de Produção e Operações"},
+   t:{en:"Luxury, sourced on three continents",pt:"Luxo com insumos de três continentes"},
+   s:{en:"Production and supply chain for a luxury cosmetics brand buying across Australia, Asia and Europe, plus the internal rollout of Dynamics 365.",pt:"Produção e cadeia de suprimentos de uma marca de cosméticos de luxo com compras na Austrália, Ásia e Europa, além da implantação interna do Dynamics 365."},
+   k:"3", kl:{en:"continents",pt:"continentes"}},
+  {id:"cdl", org:"CDL Natal", kind:"c", vis:"process", when:"2019–2021", where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
+   role:{en:"Project & Process Consultant",pt:"Consultor de Projetos e Processos"},
+   t:{en:"Better processes for local business",pt:"Processos melhores para o comércio local"},
+   s:{en:"Process mapping and project planning for more than 25 member companies of Natal's retailers' chamber.",pt:"Mapeamento de processos e planejamento de projetos para mais de 25 empresas associadas à CDL Natal."},
+   k:"25+", kl:{en:"companies",pt:"empresas"}},
+  {id:"lk", org:"LK Serviços", kind:"c", vis:"tender", when:{en:"Now",pt:"Atual"}, where:{en:"Natal, Brazil",pt:"Natal, Brasil"},
+   role:{en:"CEO · Consulting engineer",pt:"CEO · Engenheiro consultor"},
+   t:{en:"From the street to public tenders",pt:"Da rua às licitações públicas"},
+   s:{en:"Leading a Natal services company with its own truck and field team as it structures itself to compete for public contracts.",pt:"À frente de uma empresa de serviços de Natal, com caminhão e equipe próprios, que se estrutura para disputar contratos públicos."},
+   k:"CREA", kl:{en:"registered engineer",pt:"engenheiro registrado"}},
+  {id:"crossover", org:"Crossover Creative", kind:"p", vis:"collage", when:{en:"Now",pt:"Atual"}, where:{en:"Australia + Brazil",pt:"Austrália + Brasil"},
+   role:{en:"Co-founder",pt:"Cofundador"},
+   t:{en:"Brands that cross over",pt:"Marcas que atravessam"},
+   s:{en:"A creative agency founded by three Brazilian immigrants, building identity, content and reach for small businesses on two continents.",pt:"Uma agência criativa fundada por três imigrantes brasileiros, que cria identidade, conteúdo e alcance para pequenos negócios em dois continentes."},
+   k:"14", kl:{en:"projects in the portfolio",pt:"projetos no portfólio"}, link:"#design"}
+];
+
+/* Career map. Dates as decimal years (2023.17 = Mar 2023). */
+window.TIMELINE = {
+  from:2019.75, to:2027.4,
+  work:[
+    {org:"CDL Natal", kind:"c", a:2019.92, b:2021.0, story:"cdl", c:"BR"},
+    {org:"Life Sprint", kind:"d", a:2022.0, b:2023.08, story:"lifesprint", c:"BR"},
+    {org:"Fusion Clinic", kind:"p", a:2023.17, b:2024.92, story:"fusion", c:"BR"},
+    {org:"CONTHABIL", kind:"p", a:2023.25, b:2024.42, story:"conthabil", c:"BR"},
+    {org:"Origani", kind:"o", a:2024.92, b:2025.42, story:"origani", c:"AU"},
+    {org:"SNL", kind:"o", a:2025.42, b:2026.25, story:"snl", c:"AU"},
+    {org:"LK Serviços", kind:"c", a:2026.58, b:null, story:"lk", c:"BR"},
+    {org:"Crossover", kind:"p", a:2026.58, b:null, story:"crossover", c:"AU · BR"}
+  ],
+  study:[
+    {at:2020.9, t:{en:"B.Sc. Industrial Engineering · UnP",pt:"Eng. de Produção · UnP"}, p:"eng"},
+    {at:2020.95, t:{en:"IT Technician (Web) · IFRN",pt:"Técnico em Informática · IFRN"}, p:"sw"},
+    {at:2021.9, t:{en:"MBA Marketing",pt:"MBA Marketing"}, p:"eng"},
+    {a:2020.2, b:2022.9, t:{en:"Medicine · UNMDP, Argentina",pt:"Medicina · UNMDP, Argentina"}, p:"h"},
+    {at:2022.85, t:{en:"Postgrad. Health Management",pt:"Pós em Gestão em Saúde"}, p:"h"},
+    {at:2023.9, t:{en:"MBA Project Management · USP",pt:"MBA Gestão de Projetos · USP"}, p:"eng"},
+    {at:2025.5, t:{en:"Diploma of Project Management · Greystone, AU",pt:"Diploma em Gestão de Projetos · Greystone, AU"}, p:"eng"},
+    {at:2027.2, t:{en:"Master's Software Engineering · UNLP",pt:"Mestrado Eng. de Software · UNLP"}, p:"sw", expected:true}
+  ]
+};
+
+/* Education grouped by discipline (pillars) */
+window.PILLARS = [
+  {id:"eng", items:[
+    {y:"2020", t:{en:"B.Sc. Industrial Engineering",pt:"Bacharelado em Engenharia de Produção"}, s:"Universidade Potiguar (UnP)"},
+    {y:"2021", t:{en:"MBA in Marketing",pt:"MBA em Marketing"}, s:"UniAmérica"},
+    {y:"2023", t:{en:"MBA in Project Management",pt:"MBA em Gestão de Projetos"}, s:"Universidade de São Paulo (USP)"},
+    {y:"2025", t:{en:"Diploma of Project Management",pt:"Diploma of Project Management"}, s:"Greystone College, Australia"}]},
+  {id:"sw", items:[
+    {y:"2020", t:{en:"IT Technician (Web)",pt:"Técnico em Informática para Internet"}, s:"IFRN"},
+    {y:"2027", t:{en:"Specialisation + Master's in Software Engineering",pt:"Especialização + Mestrado em Engenharia de Software"}, s:{en:"UNLP, Argentina · thesis in progress",pt:"UNLP, Argentina · trabalho final em andamento"}}]},
+  {id:"h", items:[
+    {y:"2022", t:{en:"Medicine (2 years)",pt:"Medicina (2 anos cursados)"}, s:"UNMDP, Argentina"},
+    {y:"2022", t:{en:"Postgraduate in Health Management",pt:"Pós-graduação em Gestão em Saúde"}, s:"UniAmérica"}]}
+];
+Object.assign(window.I18N.en,{"fc.st":"Empty consulting rooms, booked by the hour","fc.ss":"How we built a healthcare marketplace from the first wireframe to the Web Summit Lisbon stage."});
+Object.assign(window.I18N.pt,{"fc.st":"Consultórios vazios, alugados por hora","fc.ss":"Como construímos um marketplace de saúde do primeiro wireframe ao palco do Web Summit Lisboa."});
