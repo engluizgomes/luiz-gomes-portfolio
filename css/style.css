@@ -1577,3 +1577,15 @@ dialog.lb::backdrop{background:rgba(8,9,11,.92);backdrop-filter:blur(4px)}
   .h2-talk .h2-tt{display:none}
   .h2-talk,.h2-talk.is-mini{gap:6px;padding:5px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}
 }
+/* GitHub / LinkedIn in hero + footer */
+.h2-left{grid-column:1;grid-row:2;align-self:center;display:grid;gap:18px;justify-items:start}
+.h2-left .h2-tag{grid-row:auto;margin:0}
+.h2-social{display:flex;gap:10px}
+.h2-social a{display:inline-flex;align-items:center;gap:8px;padding:9px 16px 9px 12px;border-radius:999px;background:rgba(20,14,11,.55);border:1px solid rgba(255,190,150,.35);color:#fff;text-decoration:none;font-size:.9rem;font-weight:600;backdrop-filter:blur(8px);transition:background .25s,transform .25s}
+.h2-social a:hover{background:#0D0907;transform:translateY(-2px)}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a{display:inline-flex;align-items:center;gap:6px;color:inherit;text-decoration:none}
+.foot-links a:hover{color:#FF8A4C}
+.foot-links svg{width:15px;height:15px}
+@media (max-width:900px){.h2-left{order:2;gap:14px}.h2-left .h2-tag{order:0}.h2-social a{padding:8px 14px 8px 10px;font-size:.85rem}}
+@media (max-width:900px){.h2-left{justify-self:stretch;padding:0;margin:0}.h2-inner > .h2-left{align-self:stretch}}

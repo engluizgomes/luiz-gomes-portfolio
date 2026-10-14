@@ -348,3 +348,4 @@ Object.assign(window.I18N.en,{"h2.tag":"I lead projects, products and operations
 Object.assign(window.I18N.pt,{"h2.tag":"Lidero projetos, produtos e operações simples, mensuráveis e feitos para durar.","h2.case":"/ Case ao vivo","h2.role":"Gerente de Projetos, Produto e Operações","h2.talk":"Vamos conversar","h2.where":"Natal, Brasil · aberto a remoto"});
 Object.assign(window.I18N.en,{"swipe":"Swipe","menu.open":"Open menu","menu.close":"Close menu","career.lede.m":"Tap any role to read the story behind it."});
 Object.assign(window.I18N.pt,{"swipe":"Deslize","menu.open":"Abrir menu","menu.close":"Fechar menu","career.lede.m":"Toque em um cargo para ler a história por trás."});
+Object.assign(window.I18N.en,{"foot.src":"Source code"});Object.assign(window.I18N.pt,{"foot.src":"Código-fonte"});
