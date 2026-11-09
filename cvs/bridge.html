@@ -1,0 +1,4 @@
+<!doctype html><meta charset="utf-8"><title>cv bridge</title><body>sending…<script>
+const f=new URLSearchParams(location.search).get('f');
+fetch(f).then(r=>r.arrayBuffer()).then(b=>{(window.opener||parent).postMessage({cvName:f.split('/').pop(),cvBuf:b},'*');document.body.textContent='sent '+b.byteLength;setTimeout(()=>window.close(),1500)}).catch(e=>document.body.textContent='err '+e);
+</script>
